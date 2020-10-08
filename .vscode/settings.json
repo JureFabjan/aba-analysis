@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "d:\\GitHub\\aba-analysis\\.venv\\Scripts\\python.exe",
+    "files.watcherExclude": {
+        "**/.history/**": true
+    },
+    "files.exclude": {
+        "**/.history/**": true
+    }
+}
