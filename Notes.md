@@ -12,3 +12,10 @@ http://help.brain-map.org/display/mousebrain/API#API-Expression3DGridsExpression
 http://help.brain-map.org/display/mousebrain/Documentation
 https://developingmouse.brain-map.org/static/atlas
 http://help.brain-map.org/pages/viewpage.action?pageId=2424836
+
+https://github.com/hms-dbmi/brainmapr/blob/master/README_data.md
+
+https://github.com/UCI-CARL/ABADV/blob/master/query.js
+http://sciviscontest.ieeevis.org/2013/VisContest/index.html
+
+https://github.com/UCI-CARL/ABADV/blob/master/query.js => line 100

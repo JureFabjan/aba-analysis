@@ -39,16 +39,23 @@ from MouseISHData import MouseISHData
 
 geneAcronym = "Gabra4"
 
+# TODO: try nrrd http://help.brain-map.org/display/mouseconnectivity/API#API-DownloadAtlas
 aggregations = ['min', 'max', 'mean', 'var', 'count']
-human = HumanMicroarrayData(geneAcronym).get(from_cache=True, aggregations=aggregations)
-#mouse = MouseISHData(geneAcronym).get(from_cache=True, aggregations=aggregations) 
+#human = HumanMicroarrayData(geneAcronym).get(from_cache=True, aggregations=aggregations)
+mouse = MouseISHData(geneAcronym).get(from_cache=True, aggregations=aggregations) 
 
-human.to_excel(f'export\\human_agg_{geneAcronym}.xlsx')
+#human.to_excel(f'export\\human_agg_{geneAcronym}.xlsx')
 # TODO: clarify - groupby poses an issue: donor-information for specific regions might vary => we cant group by donor-columns
 # TODO: clarify - we got sagittal and coronal planes for mice. do we need both? for humans, no planes are specified (i guess microarray works differently).
 
-#print(mouse)
+print(mouse)
 #print(human)
 
 #show(human, settings={'block': True})
 #show(mouse[0], settings={'block': True})
+
+# TODO: check ABA institute approach => works? fine! else: report bug and evaluate devmouse. fallback visualize microarray-data if possible.
+# TODO: other databases for mice gene expression, preferably using in-situ hybridization => florian will send some links.
+
+# TODO: check http://help.brain-map.org/display/devmouse/API -> are there any expression-levels without structureid as well? it is a decent fallback.
+# TODO: detailed microarray or sequencing would also be ok. single-cell is difficult.

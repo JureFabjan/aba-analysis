@@ -48,7 +48,8 @@ class MouseISHData:
         #zipfile.ZipFile(request.urlretrieve(self.url)[0]).read("gridAnnotation.raw")))
         # http://help.brain-map.org/display/mousebrain/Documentation
         # TODO: i think this is wrong. we have different types of grid data: saggital and coronal. are the annotations in the same order for both??
-        annotations = np.fromfile("annotations\\P56_Mouse_gridAnnotation\\gridAnnotation.raw", dtype="uint32")
+        annotationsU = np.fromfile("annotations\\P56_Mouse_gridAnnotation\\gridAnnotation.raw", dtype="uint32")
+        annotations = np.fromfile("annotations\\P56_Mouse_gridAnnotation\\gridAnnotation.raw", dtype="int32")
 
         # for Mouse P56, structure_graph_id = 1 according to http://help.brain-map.org/display/api/Atlas+Drawings+and+Ontologies
         structure_map = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution=25).get(structure_graph_id=1)
@@ -61,13 +62,21 @@ class MouseISHData:
             #anns = refSp.download_mouse_atlas_volume(age=15, volume_type=GridDataApi.ENERGY, file_name=f'cache\\mouse_atlas_volume.zip')
             #print(anns)
 
+            # http://help.brain-map.org/display/mousebrain/API
+            
             try:
                 gdApi.download_gene_expression_grid_data(exp_id, GridDataApi.ENERGY, exp_path)
+
+                expression_levels = np.fromfile(exp_path + "energy.raw",  dtype=np.float32)
+                
+                np.savetxt(f"{exp_path}raw\\expression_levels.csv", expression_levels, delimiter=",")
+                np.savetxt(f"{exp_path}raw\\annotations_uint32.csv", annotationsU, delimiter=",")
+                np.savetxt(f"{exp_path}raw\\annotations_int32.csv", annotations, delimiter=",")
 
                 # According to the docs here: http://help.brain-map.org/display/api/Downloading+3-D+Expression+Grid+Data
                 # we have "A raw uncompressed float (32-bit) little-endian volume representing average expression energy per voxel. A value of "-1" represents no data. This file is returned by default if the volumes parameter is null."
                 # energy = numpy.array(list(struct.iter_unpack("<f", open(exp_path + "energy.raw", "rb").read()))).flatten() # way too complicated, but there is a delta in mean and sum. what is the right value??
-                data = pd.DataFrame({"expression_level": np.fromfile(exp_path + "energy.raw",  dtype=np.float32), "structure_id": annotations})
+                data = pd.DataFrame({"expression_level": expression_levels, "structure_id": annotations})
 
                 # TODO: there is something wrong. some expression_levels are assigned to a structure of id 0. same is true for Jure's approach
                 data = data[(data.expression_level != -1)] # (data.structure_id != 0) & ]
