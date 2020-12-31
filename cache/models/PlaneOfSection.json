@@ -1,0 +1,57 @@
+[
+  {
+    "id": 8,
+    "name": "Medial to Lateral",
+    "plane_of_section_name_facet": 4250393088
+  },
+  {
+    "id": 6,
+    "name": "transverse",
+    "plane_of_section_name_facet": 2631294903
+  },
+  {
+    "id": 7,
+    "name": "Lateral to Medial",
+    "plane_of_section_name_facet": 747065265
+  },
+  {
+    "id": 1,
+    "name": "coronal",
+    "plane_of_section_name_facet": 1147990476
+  },
+  {
+    "id": 2,
+    "name": "sagittal",
+    "plane_of_section_name_facet": 1688773703
+  },
+  {
+    "id": 9,
+    "name": "Ventral to Dorsal",
+    "plane_of_section_name_facet": 208084445
+  },
+  {
+    "id": 11,
+    "name": "Coronal (Caudal to Rostral)",
+    "plane_of_section_name_facet": 3139629262
+  },
+  {
+    "id": 5,
+    "name": "n/a",
+    "plane_of_section_name_facet": 2510378651
+  },
+  {
+    "id": 10,
+    "name": "Dorsal to Ventral",
+    "plane_of_section_name_facet": 545617908
+  },
+  {
+    "id": 531107579,
+    "name": "Coronal (Rostral to Caudal)",
+    "plane_of_section_name_facet": 3002386619
+  },
+  {
+    "id": 4,
+    "name": "variable",
+    "plane_of_section_name_facet": 3427633037
+  }
+]
