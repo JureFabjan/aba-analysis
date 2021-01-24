@@ -23,8 +23,8 @@ GENE1_LIST.defaultRight =  'Gabra5'
 
 GENE2_LIST = copy.copy(GENE_LIST)
 GENE2_LIST.type =  'gene2'
-GENE2_LIST.defaultLeft = 'Gabrb2'
-GENE2_LIST.defaultRight = 'Gabrb3'
+GENE2_LIST.defaultLeft =  'Gabrb2'
+GENE2_LIST.defaultRight =  'Gabrb3
 GENE2_LIST.label = 'vs'
 
 

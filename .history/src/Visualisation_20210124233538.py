@@ -131,16 +131,16 @@ class WebInterface:
 
     #print(data)    
     # https://plotly.com/python-api-reference/generated/plotly.express.scatter
-    fig = px.scatter(data, y=f"expression_level_{gene1}_{aggregation_function}", x=f"expression_level_{gene2}_{aggregation_function}"
+    fig = px.scatter(data, x=f"expression_level_{gene1}_{aggregation_function}", y=f"expression_level_{gene2}_{aggregation_function}"
           # TODO: there is some issue with sizes. besides NaN, we got some weird errors...
-	        #,size=sizeBy#, size_max=400 
+	        #,size=sizeBy#, size_max=400
           ,color=structure_level
           ,opacity=0.65
           )
 
 
-    fig.update_xaxes(title=gene2)           
-    fig.update_yaxes(title=gene1)
+    fig.update_xaxes(title=gene1)           
+    fig.update_yaxes(title=gene2)
     return fig
 
   # TODO: there are some NaNs...
