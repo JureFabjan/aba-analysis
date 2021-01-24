@@ -1,0 +1,108 @@
+[
+  {
+    "blue_channel": null,
+    "delegate": true,
+    "expression": true,
+    "failed": false,
+    "failed_facet": 734881840,
+    "green_channel": null,
+    "id": 70593139,
+    "name": null,
+    "plane_of_section_id": 2,
+    "qc_date": "2009-05-02T22:53:03Z",
+    "red_channel": null,
+    "reference_space_id": 10,
+    "rnaseq_design_id": null,
+    "section_thickness": 25.0,
+    "specimen_id": 69765660,
+    "sphinx_id": 94399,
+    "storage_directory": "/external/aibssan/production32/prod331/image_series_70593139/",
+    "weight": 5470,
+    "genes": [
+      {
+        "acronym": "Gabra2",
+        "alias_tags": "C630048P16Rik Gabra-2 MGC140832",
+        "chromosome_id": 50,
+        "ensembl_id": null,
+        "entrez_id": 14395,
+        "genomic_reference_update_id": 491928275,
+        "homologene_id": 20217,
+        "id": 14171,
+        "legacy_ensembl_gene_id": null,
+        "name": "gamma-aminobutyric acid (GABA) A receptor, subunit alpha 2",
+        "organism_id": 2,
+        "original_name": "gamma-aminobutyric acid (GABA) A receptor, subunit alpha 2",
+        "original_symbol": "Gabra2",
+        "reference_genome_id": null,
+        "sphinx_id": 103585,
+        "version_status": "no change"
+      }
+    ],
+    "products": [
+      {
+        "abbreviation": "Mouse",
+        "description": "Genome-wide, high-resolution ISH data detailing gene expression throughout the adult mouse brain.",
+        "id": 1,
+        "name": "Mouse Brain",
+        "product_name_facet": 2757464828,
+        "resource": "Allen Mouse Brain Atlas",
+        "species": "Mouse",
+        "species_name_facet": 1861523945,
+        "tags": null
+      }
+    ]
+  },
+  {
+    "blue_channel": null,
+    "delegate": false,
+    "expression": true,
+    "failed": false,
+    "failed_facet": 734881840,
+    "green_channel": null,
+    "id": 74988690,
+    "name": null,
+    "plane_of_section_id": 1,
+    "qc_date": "2009-05-02T23:06:01Z",
+    "red_channel": null,
+    "reference_space_id": 9,
+    "rnaseq_design_id": null,
+    "section_thickness": 25.0,
+    "specimen_id": 74784882,
+    "sphinx_id": 157132,
+    "storage_directory": "/external/aibssan/production32/prod341/image_series_74988690/",
+    "weight": 5470,
+    "genes": [
+      {
+        "acronym": "Gabra2",
+        "alias_tags": "C630048P16Rik Gabra-2 MGC140832",
+        "chromosome_id": 50,
+        "ensembl_id": null,
+        "entrez_id": 14395,
+        "genomic_reference_update_id": 491928275,
+        "homologene_id": 20217,
+        "id": 14171,
+        "legacy_ensembl_gene_id": null,
+        "name": "gamma-aminobutyric acid (GABA) A receptor, subunit alpha 2",
+        "organism_id": 2,
+        "original_name": "gamma-aminobutyric acid (GABA) A receptor, subunit alpha 2",
+        "original_symbol": "Gabra2",
+        "reference_genome_id": null,
+        "sphinx_id": 103585,
+        "version_status": "no change"
+      }
+    ],
+    "products": [
+      {
+        "abbreviation": "Mouse",
+        "description": "Genome-wide, high-resolution ISH data detailing gene expression throughout the adult mouse brain.",
+        "id": 1,
+        "name": "Mouse Brain",
+        "product_name_facet": 2757464828,
+        "resource": "Allen Mouse Brain Atlas",
+        "species": "Mouse",
+        "species_name_facet": 1861523945,
+        "tags": null
+      }
+    ]
+  }
+]

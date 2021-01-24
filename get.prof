@@ -1,0 +1,18 @@
+         15230 function calls (15106 primitive calls) in 0.092 seconds
+
+   Ordered by: cumulative time
+   List reduced from 191 to 10 due to restriction <10>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.092    0.092 HumanMicroarrayData.py:86(get)
+        1    0.000    0.000    0.068    0.068 Utils.py:75(load)
+        1    0.024    0.024    0.066    0.066 {built-in method _pickle.load}
+       39    0.000    0.000    0.038    0.001 base.py:174(_new_Index)
+        9    0.000    0.000    0.024    0.003 multi.py:251(__new__)
+        9    0.001    0.000    0.023    0.003 multi.py:321(_verify_integrity)
+        2    0.000    0.000    0.023    0.011 {built-in method builtins.print}
+        4    0.000    0.000    0.023    0.006 pydevd_io.py:30(write)
+        4    0.022    0.006    0.022    0.006 {method 'write' of '_io.TextIOWrapper' objects}
+    58/29    0.003    0.000    0.014    0.000 base.py:293(__new__)
+
+

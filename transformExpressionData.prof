@@ -1,0 +1,18 @@
+         2681853 function calls (2681021 primitive calls) in 2.469 seconds
+
+   Ordered by: cumulative time
+   List reduced from 605 to 10 due to restriction <10>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.058    0.058    2.469    2.469 HumanMicroarrayData.py:30(transformExpressionData)
+        9    0.212    0.024    2.216    0.246 frame.py:441(__init__)
+        1    0.000    0.000    2.143    2.143 HumanMicroarrayData.py:71(<listcomp>)
+        3    0.042    0.014    2.143    0.714 HumanMicroarrayData.py:61(unpack_dict_list)
+        3    0.019    0.006    2.082    0.694 frame.py:1230(from_dict)
+        3    0.004    0.001    1.561    0.520 construction.py:498(to_arrays)
+        3    0.001    0.000    1.557    0.519 construction.py:609(_list_of_dict_to_arrays)
+        3    0.189    0.063    0.801    0.267 {pandas._libs.lib.fast_unique_multiple_list_gen}
+   888483    0.549    0.000    0.612    0.000 construction.py:637(<genexpr>)
+        3    0.000    0.000    0.324    0.108 construction.py:709(_convert_object_array)
+
+
