@@ -49,7 +49,7 @@ class WebInterface:
 
     # https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/
     self.app.layout = html.Div([
-        html.H1('Z-score gene-expression by species & region', className="p-2 pl-4"),
+        html.H1('Z-score gene-expression by species & regions', className="p-2 pl-4"),
         html.P('All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization', className="p-1 pl-4"),
 
         dbc.Tabs([
@@ -157,7 +157,7 @@ class WebInterface:
     return { input[i]['id']['type']:input[i]['value']  for i in range(0,len(input)) }
 
   def sideBySideView(self, viewName, commonFilters, sideFilters):
-    dimensions = Utils.simple({ 'w': 'calc(49vw - 30px)', 'h': 'calc(100vh - 400px)' })
+    dimensions = Utils.simple({ 'w': 'calc(49vw - 30px)', 'h': 'calc(100vh - 392px)' })
 
     return dbc.Card(
     dbc.CardBody(
