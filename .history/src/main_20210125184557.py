@@ -54,16 +54,14 @@ import Visualisation
 import Constants
 import Utils
 
-#gene = "Gabra4"
-#aggregation_function = 'mean'
+gene = "Gabra4"
+aggregation_function = 'mean'
+Comparison.byDonor(
+      HumanMicroarrayData(gene).get(from_cache=True, aggregations=Constants.AGGREGATION_FUNCTIONS),
+      MouseISHData(gene).get(from_cache=True, aggregations=Constants.AGGREGATION_FUNCTIONS),
+      aggregation_function)
 
-# human = HumanMicroarrayData(gene).get(from_cache=True, aggregations=Constants.AGGREGATION_FUNCTIONS)
-# mouse = MouseISHData(gene).get(from_cache=True, aggregations=Constants.AGGREGATION_FUNCTIONS)
-# Comparison.byDonor(
-#       human, mouse,      
-#       aggregation_function)
-
-# sys.exit()
+sys.exit()
 # TODO: https://medium.com/@vladbezden/new-python-project-configuration-with-vs-code-b41b77f7aed8
 
 webApp = Visualisation.WebInterface(__name__) # 'Meduni Vienna ISH & Microarray data'

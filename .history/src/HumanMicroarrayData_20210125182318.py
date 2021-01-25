@@ -51,9 +51,8 @@ class HumanMicroarrayData:
       combined.expression_levels += probe["expression_level"]
       combined.z_scores += probe["z-score"] # ! z-scores are NOT comparable with ISH-data for mice. these z-scores are only intended for isolated analysis!
       
-      np.savetxt(f"probe\\z-score_{i}.csv", np.asarray(probe["z-score"], dtype=np.float32), delimiter=",")
-      np.savetxt(f"probe\\expression_level_{i}.csv", np.asarray(probe["expression_level"], dtype=np.float32), delimiter=",")
-      i += 1
+      np.savetxt(f"probe/z-score_{i}.csv", np.asarray(probe["z-score"], dtype=np.float32), delimiter=",")
+      np.savetxt(f"probe/expression_level_{i}.csv", np.asarray(probe["expression_level"], dtype=np.float32), delimiter=",")
 
       # TODO: find out the right application of z-score to normalize correctly
       # also check: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4243026/#SD12
