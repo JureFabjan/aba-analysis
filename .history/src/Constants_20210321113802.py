@@ -71,11 +71,7 @@ __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x:
     : (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) } ,axis=1)
      for species in ['Human', 'Mouse'] }
 
-# https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html
 RegionAssignments = Utils.simple( { 
-  'asList': __regionAssignments,
-  'asDict': { 
-    'Human': Utils.combine_dicts(__regionAssignments['Human'].to_list()),
-    'Mouse': Utils.combine_dicts(__regionAssignments['Mouse'].to_list()) }
+  'asList': __regionAssignments
   #'asColumns':  pd.DataFrame.from_dict(__regionAssignments)[0].apply(pd.Series)
 })

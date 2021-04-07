@@ -78,7 +78,7 @@ def by_region(structure_df, agg, value_column, region_column, structure_column):
     
     # pandas sorts case-sensitive, but we don't want this. so:
     # https://stackoverflow.com/questions/30521994/how-to-sort-row-index-case-insensitive-way-in-pandas-dataframe
-  region = region.reindex(Utils.sort_by_nan(region)) # sorted(region.index, key=lambda x: x.lower()))
+  region = region.reindex(sorted(region.index, key=lambda x: x.lower()))
   
   return region
 
@@ -91,8 +91,7 @@ def merge_coex(struct1, struct2, genes, index_columns_to_keep = ['structure_name
 def findRegionAssignment(x, assignments, species):
 
   # ! its kind of a convention that levels_0 to 10 are the first 10 columns.
-  # ! we need to iterate from highest to lowest level in order match the most specific region
-  levels = [(f"level_{level}", x[level]) for level in range(10,0)] 
+  levels = [(f"level_{level}", x[level]) for level in range(0,10)]
 
   for l in levels:
     if l in assignments[species]:
@@ -107,12 +106,11 @@ def byDonor(human, mouse, agg, matchBy = 'acronym'):
   # ? comp contain joined data of human and mice. i.e. different species / experiments are provided as columns.
   # raw=True in order to only receive the ndarray instead of a Series. this is much faster, according to:
   # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html#pandas.DataFrame.apply
-  human['human'].structure['regionAssignment'] = human['human'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Human', )).dropna()
-  mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
-  mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
+  human['human'].structure['regionAssignment'] = human['human'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Human', ))
+  mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', ))
+  mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', ))
 
-  #print(human['human'].structure['regionAssignment'])
-  # TODO: merge using regionAssignments. check if/why dropna is not working
+  print(human['human'].structure['regionAssignment'])
   comp = merge([human] + [mouse], 'acronym', matchBy, Utils.intersect(HumanMicroarrayData.VALUE_COLUMNS, MouseISHData.VALUE_COLUMNS))
 
   # remove verbose structural details and remove glob-z-prefix to improve readability:

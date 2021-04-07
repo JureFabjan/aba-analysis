@@ -78,7 +78,7 @@ def by_region(structure_df, agg, value_column, region_column, structure_column):
     
     # pandas sorts case-sensitive, but we don't want this. so:
     # https://stackoverflow.com/questions/30521994/how-to-sort-row-index-case-insensitive-way-in-pandas-dataframe
-  region = region.reindex(Utils.sort_by_nan(region)) # sorted(region.index, key=lambda x: x.lower()))
+  region = region.reindex(sorted(region.index, key=lambda x: x.lower()))
   
   return region
 

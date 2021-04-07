@@ -39,10 +39,6 @@ def drop_columns_if(df, keywords = ['structure_', 'level_']):
   
   return ret
 
-def sort_by_nan(df):
-  # from https://stackoverflow.com/questions/45909776/sort-rows-of-a-dataframe-in-descending-order-of-nan-counts
-  return df.isnull().sum(1).sort_values(ascending=False).index
-
 def sort_case_insensitive(df, column):
   # from: https://stackoverflow.com/questions/29898090/pandas-sort-with-capital-letters/29899345
   return df.loc[df[column].str.lower().sort_values().index]
@@ -63,10 +59,10 @@ def merge_with_structure(data, structure, value_cols, aggregations):
   
   return simple({ 'structure': byStructure, 'acronym': byAcronym })
 
-def combine_dicts(list_of_dicts):
+def combineDicts(list_of_dicts):
   # https://stackoverflow.com/questions/3494906/how-do-i-merge-a-list-of-dicts-into-a-single-dict
   return {k: v for d in list_of_dicts for k, v in d.items()}
-
+  
 def splitByThreshold(data, column, separation_threshold):
   return (
     data[(data[column] < separation_threshold) & (data[column] > (-1 * separation_threshold))], 

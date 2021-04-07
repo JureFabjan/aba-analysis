@@ -78,7 +78,7 @@ def by_region(structure_df, agg, value_column, region_column, structure_column):
     
     # pandas sorts case-sensitive, but we don't want this. so:
     # https://stackoverflow.com/questions/30521994/how-to-sort-row-index-case-insensitive-way-in-pandas-dataframe
-  region = region.reindex(Utils.sort_by_nan(region)) # sorted(region.index, key=lambda x: x.lower()))
+  region = region.reindex(sorted(region.index, key=lambda x: x.lower()))
   
   return region
 
@@ -111,8 +111,7 @@ def byDonor(human, mouse, agg, matchBy = 'acronym'):
   mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
   mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
 
-  #print(human['human'].structure['regionAssignment'])
-  # TODO: merge using regionAssignments. check if/why dropna is not working
+  print(human['human'].structure['regionAssignment'])
   comp = merge([human] + [mouse], 'acronym', matchBy, Utils.intersect(HumanMicroarrayData.VALUE_COLUMNS, MouseISHData.VALUE_COLUMNS))
 
   # remove verbose structural details and remove glob-z-prefix to improve readability:

@@ -65,8 +65,6 @@ class HumanMicroarrayData:
       # ! ok, we need to add all probes to a 3d-array where all samples of each probe are the z-axis 
       # ! (opposed to the current 2d-array, where each probe is found at the % 3702th position)
       # ! by doing this, we build the z-score (fold-change) for each value obtain by a specific brain-region
-      # ! or: try reshape or a similar function to rearrange the array
-      # ! NOTE: we can only calculate the z-score outside this loop!
       # also check: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4243026/#SD12
       #combined.z_scores_log2 += Utils.z_score(np.log2(np.asarray(probe["expression_level"], dtype=np.float32)))
       #print('z-scores', combined.z_scores)

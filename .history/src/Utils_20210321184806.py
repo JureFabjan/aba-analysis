@@ -41,7 +41,7 @@ def drop_columns_if(df, keywords = ['structure_', 'level_']):
 
 def sort_by_nan(df):
   # from https://stackoverflow.com/questions/45909776/sort-rows-of-a-dataframe-in-descending-order-of-nan-counts
-  return df.isnull().sum(1).sort_values(ascending=False).index
+  return df.iloc[df.isnull().sum(1).sort_values(ascending=0).index]
 
 def sort_case_insensitive(df, column):
   # from: https://stackoverflow.com/questions/29898090/pandas-sort-with-capital-letters/29899345

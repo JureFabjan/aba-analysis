@@ -104,7 +104,7 @@ class MouseISHData:
               Utils.save(data, self.cache_path, name + '.pkl')
 
               # TODO: i would love to provide more detailed spacial information, but the grid-annotations only provide 
-              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data #.append(Utils.simple({ 'data': data, 'name': name }))
+              experiments[Constants.PlaneOfSections[row["plane_of_section_id"]]] = data #.append(Utils.simple({ 'data': data, 'name': name }))
           except Exception as e:
               print(f"Error retrieving mouse-ish experiment {exp_id}: {str(e)}")
       
@@ -116,5 +116,5 @@ class MouseISHData:
         return self.get(False, aggregations)
       
       #print('MouseISHData.get() done')
-      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }
+      return { Utils.getFilename(file).split('_')[3] : Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }
           

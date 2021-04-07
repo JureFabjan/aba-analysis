@@ -10,5 +10,5 @@
         "PYTHONPATH": "${workspaceFolder}/src",
     },
     "python.envFile": "${workspaceFolder}/.env",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "autopep8"
 }

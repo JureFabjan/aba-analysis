@@ -1,1 +1,0 @@
-"line 1, column 62: no viable alternative at input \"'left'\"\nmodel::Probe,rma::criteria,gene[acronym$il['Gabra4', 'human', 'left']],rma::options[num_rows$eqall],pipe::list[probes$eq'id'],service::human_microarray_expression[probes$eq$probes]\n--------------------------------------------------------------^"

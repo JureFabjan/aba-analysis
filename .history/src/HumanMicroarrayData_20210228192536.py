@@ -41,7 +41,6 @@ class HumanMicroarrayData:
     setattr(combined, 'samples', []) 
     setattr(combined, 'expression_levels', [])
     setattr(combined, 'z_scores', [])
-    setattr(combined, 'z_scores_log2', [])
 
     samples = expressionData["samples"] # we hereby prevent a dict-lookup for each probe, because its always the same data used over and over again
 
@@ -62,15 +61,10 @@ class HumanMicroarrayData:
       #i += 1
 
       # TODO: find out the right application of z-score to normalize correctly
-      # ! ok, we need to add all probes to a 3d-array where all samples of each probe are the z-axis 
-      # ! (opposed to the current 2d-array, where each probe is found at the % 3702th position)
-      # ! by doing this, we build the z-score (fold-change) for each value obtain by a specific brain-region
-      # ! or: try reshape or a similar function to rearrange the array
-      # ! NOTE: we can only calculate the z-score outside this loop!
       # also check: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4243026/#SD12
-      #combined.z_scores_log2 += Utils.z_score(np.log2(np.asarray(probe["expression_level"], dtype=np.float32)))
-      #print('z-scores', combined.z_scores)
-      #print('recalc', combined.z_scores_log2)
+      combined.z_scores_log2 += Utils.z_score(np.log2(probe["z-score"]))
+      print('z-scores', combined.z_scores)
+      print('recalc', combined.z_scores_log2)
 
     # https://stackoverflow.com/questions/29325458/dictionary-column-in-pandas-dataframe
     data = pd.DataFrame({"expression_level": combined.expression_levels, "z-score": combined.z_scores},
@@ -105,17 +99,9 @@ class HumanMicroarrayData:
   # @functools.lru_cache(maxsize= 128)
   def get(self, from_cache, aggregations):
   
-    if from_cache:
-      return self.getAsync(from_cache, aggregations)
-
     if self.geneAcronym in HumanMicroarrayData.currentGets:
-      print(f'Waiting for initial request of human gene {self.geneAcronym} to complete...')
-      done, not_done = concurrent.futures.wait([HumanMicroarrayData.currentGets[self.geneAcronym]], 
-       return_when=concurrent.futures.FIRST_COMPLETED) # this wants an array... ok
-      
-      for fut in done:
-        print(fut, fut.exception())
-        return fut.result() #return HumanMicroarrayData.currentGets[self.geneAcronym].result()
+      done = concurrent.futures.as_completed(HumanMicroarrayData.currentGets[self.geneAcronym])
+      return done.result()
 
     else: 
       with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -171,7 +157,7 @@ class HumanMicroarrayData:
     else:
       if not glob.glob(self.cache_path):
         Utils.log.warning(f"No cached dataframe found. Check whether you have access to file '{self.cache_path}' and whether it exists. Obtaining data without caching now...")
-        return self.get(False, aggregations)
+        return self.getAsync(False, aggregations)
 
       #print('HumanMicroarrayData.get() done')
       return { 'human': Utils.load(self.cache_path + 'cache.pkl') }
