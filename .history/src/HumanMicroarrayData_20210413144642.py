@@ -3,8 +3,6 @@ from allensdk.api.cache import Cache
 
 from types import SimpleNamespace
 
-import ptvsd
-
 import numpy as np
 import pandas as pd
 import glob

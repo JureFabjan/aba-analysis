@@ -1,0 +1,9 @@
+python 3.6.8
+numpy
+pandas==1.1.5
+allensdk==2.2.0
+dash
+dash_bootstrap_components
+dash_extensions
+dash_pivottable
+ptvsd

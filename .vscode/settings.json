@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "d:\\GitHub\\aba-analysis\\.venv\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Users\\Chris\\AppData\\Local\\Programs\\Python\\Python36\\python.exe",
     "files.watcherExclude": {
         "**/.history/**": true
     },

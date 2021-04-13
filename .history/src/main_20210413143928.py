@@ -54,7 +54,10 @@ import Visualisation
 import Constants
 import Utils
 
-
+from _pydevd_bundle.pydevd_trace_dispatch import USING_CYTHON
+from _pydevd_frame_eval.pydevd_frame_eval_main import USING_FRAME_EVAL
+print('USING_CYTHON', USING_CYTHON)
+print('USING_FRAME_EVAL', USING_FRAME_EVAL)
 
 #gene = "Gabra4"
 #aggregation_function = 'mean'

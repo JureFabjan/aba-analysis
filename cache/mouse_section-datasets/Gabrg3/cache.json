@@ -15,7 +15,7 @@
     "rnaseq_design_id": null,
     "section_thickness": 25.0,
     "specimen_id": 69223908,
-    "sphinx_id": 143846,
+    "sphinx_id": 144369,
     "storage_directory": "/external/aibssan/production32/prod328/image_series_69257295/",
     "weight": 5470,
     "genes": [
@@ -34,7 +34,7 @@
         "original_name": "gamma-aminobutyric acid (GABA) A receptor, subunit gamma 3",
         "original_symbol": "Gabrg3",
         "reference_genome_id": null,
-        "sphinx_id": 103391,
+        "sphinx_id": 102182,
         "version_status": "no change"
       }
     ],
@@ -68,7 +68,7 @@
     "rnaseq_design_id": null,
     "section_thickness": 25.0,
     "specimen_id": 70780130,
-    "sphinx_id": 51356,
+    "sphinx_id": 51566,
     "storage_directory": "/external/aibssan/production32/prod335/image_series_71587875/",
     "weight": 5470,
     "genes": [
@@ -87,7 +87,7 @@
         "original_name": "gamma-aminobutyric acid (GABA) A receptor, subunit gamma 3",
         "original_symbol": "Gabrg3",
         "reference_genome_id": null,
-        "sphinx_id": 103391,
+        "sphinx_id": 102182,
         "version_status": "no change"
       }
     ],

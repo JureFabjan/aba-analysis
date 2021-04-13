@@ -3,8 +3,6 @@ from allensdk.api.cache import Cache
 
 from types import SimpleNamespace
 
-import ptvsd
-
 import numpy as np
 import pandas as pd
 import glob
@@ -148,7 +146,7 @@ class HumanMicroarrayData:
               "pipe::list[probes$eq'id'],"
               "service::human_microarray_expression[probes$eq$probes]")
 
-      ptvsd.tracing(False)
+      # ptvsd.tracing(False)
       data = cache_writer.wrap(
               rma.json_msg_query,
               path=Utils.makedir(f'cache\\human_microarray-expr\\{self.geneAcronym}') + '\\cache.json',
@@ -156,7 +154,7 @@ class HumanMicroarrayData:
               url=query
           )
       
-      ptvsd.tracing(True)
+      # ptvsd.tracing(True)
 
       structure_map, tree, annotation  = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution = 25).get(structure_graph_id=10) # , annotation, meta 
       

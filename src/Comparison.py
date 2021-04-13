@@ -107,9 +107,10 @@ def byDonor(human, mouse, agg, matchBy = 'acronym'):
   # ? comp contain joined data of human and mice. i.e. different species / experiments are provided as columns.
   # raw=True in order to only receive the ndarray instead of a Series. this is much faster, according to:
   # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html#pandas.DataFrame.apply
-  human['human'].structure['regionAssignment'] = human['human'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Human', )).dropna()
-  mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
-  mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
+  
+  #human['human'].structure['regionAssignment'] = human['human'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Human', )).dropna()
+  #mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
+  #mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', )).dropna()
 
   #print(human['human'].structure['regionAssignment'])
   # TODO: merge using regionAssignments. check if/why dropna is not working

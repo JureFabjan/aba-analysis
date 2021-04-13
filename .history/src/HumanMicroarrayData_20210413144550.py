@@ -3,8 +3,6 @@ from allensdk.api.cache import Cache
 
 from types import SimpleNamespace
 
-import ptvsd
-
 import numpy as np
 import pandas as pd
 import glob
@@ -157,7 +155,7 @@ class HumanMicroarrayData:
           )
       
       ptvsd.tracing(True)
-
+      
       structure_map, tree, annotation  = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution = 25).get(structure_graph_id=10) # , annotation, meta 
       
       data = self.transformExpressionData(data)

@@ -1,6 +1,6 @@
 # from: https://stackoverflow.com/questions/17326973/is-there-a-way-to-auto-adjust-excel-column-widths-with-pandas-excelwriter
 
-from styleframe import StyleFrame
+#from styleframe import StyleFrame
 import Utils
 # https://stackoverflow.com/questions/42499656/pass-all-arguments-of-a-function-to-another-function
 # isn't working with multi-indexes (i.e.: grouping)

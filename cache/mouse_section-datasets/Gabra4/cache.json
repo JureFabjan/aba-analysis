@@ -15,7 +15,7 @@
     "rnaseq_design_id": null,
     "section_thickness": 25.0,
     "specimen_id": 75179632,
-    "sphinx_id": 54095,
+    "sphinx_id": 54318,
     "storage_directory": "/external/aibssan/production32/prod342/image_series_75551483/",
     "weight": 5470,
     "genes": [
@@ -34,7 +34,7 @@
         "original_name": "gamma-aminobutyric acid (GABA) A receptor, subunit alpha 4",
         "original_symbol": "Gabra4",
         "reference_genome_id": null,
-        "sphinx_id": 65792,
+        "sphinx_id": 65214,
         "version_status": "no change"
       }
     ],
@@ -68,7 +68,7 @@
     "rnaseq_design_id": null,
     "section_thickness": 25.0,
     "specimen_id": 71120791,
-    "sphinx_id": 140838,
+    "sphinx_id": 141353,
     "storage_directory": "/external/aibssan/production32/prod336/image_series_71924402/",
     "weight": 5470,
     "genes": [
@@ -87,7 +87,7 @@
         "original_name": "gamma-aminobutyric acid (GABA) A receptor, subunit alpha 4",
         "original_symbol": "Gabra4",
         "reference_genome_id": null,
-        "sphinx_id": 65792,
+        "sphinx_id": 65214,
         "version_status": "no change"
       }
     ],

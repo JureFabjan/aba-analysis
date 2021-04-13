@@ -14,21 +14,10 @@
   <rnaseq-design-id nil="true"/>
   <section-thickness>25.0</section-thickness>
   <specimen-id>75063998</specimen-id>
-  <sphinx-id>93731</sphinx-id>
+  <sphinx-id>94085</sphinx-id>
   <storage-directory>/external/aibssan/production32/prod342/image_series_75551468/</storage-directory>
   <weight>5470</weight>
   <products>
-    <product>
-      <abbreviation>Mouse</abbreviation>
-      <description>Genome-wide, high-resolution ISH data detailing gene expression throughout the adult mouse brain.</description>
-      <id type="integer">1</id>
-      <name>Mouse Brain</name>
-      <product-name-facet type="integer">2757464828</product-name-facet>
-      <resource>Allen Mouse Brain Atlas</resource>
-      <species>Mouse</species>
-      <species-name-facet type="integer">1861523945</species-name-facet>
-      <tags nil="true"/>
-    </product>
     <product>
       <abbreviation>DevMouse</abbreviation>
       <description>High-resolution ISH data detailing expression patterns of ~2,000 genes across mouse brain development.</description>
@@ -36,6 +25,17 @@
       <name>Developing Mouse Brain</name>
       <product-name-facet type="integer">2290087187</product-name-facet>
       <resource>Allen Developing Mouse Brain Atlas</resource>
+      <species>Mouse</species>
+      <species-name-facet type="integer">1861523945</species-name-facet>
+      <tags nil="true"/>
+    </product>
+    <product>
+      <abbreviation>Mouse</abbreviation>
+      <description>Genome-wide, high-resolution ISH data detailing gene expression throughout the adult mouse brain.</description>
+      <id type="integer">1</id>
+      <name>Mouse Brain</name>
+      <product-name-facet type="integer">2757464828</product-name-facet>
+      <resource>Allen Mouse Brain Atlas</resource>
       <species>Mouse</species>
       <species-name-facet type="integer">1861523945</species-name-facet>
       <tags nil="true"/>
@@ -62,7 +62,7 @@
     <pinned-radius type="float" nil="true"/>
     <rna-integrity-number type="float" nil="true"/>
     <specimen-id-path>/75063998/</specimen-id-path>
-    <sphinx-id type="integer">25606</sphinx-id>
+    <sphinx-id type="integer">25687</sphinx-id>
     <structure-id type="integer" nil="true"/>
     <tissue-ph type="float" nil="true"/>
     <treatment-id type="integer" nil="true"/>
