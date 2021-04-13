@@ -1,6 +1,6 @@
 
 from allensdk.api.queries.rma_api import RmaApi
-#from allensdk.api.cache import Cache
+from allensdk.api.cache import Cache
 
 import pandas as pd
 import numpy as np
@@ -47,13 +47,14 @@ class AllenSdkHelper:
     self.rma = RmaApi() 
 
         # the cache_writeer allows us to easily cache the results
-    
+    self.cache_writer = Cache()
 
-    self.PlaneOfSections = self.rma.json_msg_query(
+    self.PlaneOfSections = self.cache_writer.wrap(
+            self.rma.json_msg_query,
+            path=Utils.makedir(f'cache\\models') + '\\PlaneOfSection.json',
+            cache=False, # the semantics of this function are a bit weird. providing True means: add it to the cache,
             url="http://api.brain-map.org/api/v2/data/query.json?criteria=model::PlaneOfSection,rma::options[num_rows$eqall]"
         )
-
-    # path=Utils.makedir(f'cache\\models') + '\\PlaneOfSection.json',
 
   def getPlaneOfSections(self):
     return self.PlaneOfSections
