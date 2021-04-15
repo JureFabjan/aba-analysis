@@ -64,10 +64,8 @@ __opposing = { 'Human': 'Mouse', 'Mouse': 'Human' }
 
 __regionAssignmentsRaw = pd.read_csv('annotations\\region assignment.csv', header=0)
 __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x: 
-    { (x[species].split(';')[0], x[species].split(';')[1]) :
-     { 'assignment': (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) ,
-     'name': x['Name'] }
-    } ,axis=1)
+    { 'assignment': { (x[species].split(';')[0], x[species].split(';')[1]) : (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) },
+     'name': x['Name'] } ,axis=1)
      for species in ['Human', 'Mouse'] }
 
 # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html

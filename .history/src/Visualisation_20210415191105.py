@@ -85,11 +85,7 @@ class WebInterface:
     @self.app.callback( 
       # MATCH is a bit tricky. in this case, it basically says that all inputs and outputs need to belong to the same view
       [Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "figure"), 
-       Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "figure"),
-       Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "children"),
-       Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "is_open"),
-       Output({'type': 'alert', 'side': 'right', 'view': MATCH}, "children"),
-       Output({'type': 'alert', 'side': 'right', 'view': MATCH}, "is_open")], 
+       Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "figure")], 
        # we need to separate the side-specific graphs from the inputs. we use input: True to filter out non-input-controls
       [Input({'type': ALL, 'input': True, 'view': MATCH}, "value"), 
        Input({'type': ALL, 'input': True, 'side': 'left', 'view': MATCH}, "value"), 
@@ -121,37 +117,12 @@ class WebInterface:
       # the function used for creating the chart-figure is defined as a pointer in the views-object:
       fn = getattr(VIEWS, ctx.outputs_list[0]['id']['view']).fn
 
-      retLeft = None
-      retRight = None 
-
-      errLeft = None
-      errRight = None
-
-      if not left_unchanged:
-        try:
-          retLeft = fn(**common, **left, side='left')
-        except Exception as e:
-          # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
-          errLeft = repr(e)
-
-      if not right_unchanged:
-        try:
-          retRight = fn(**common, **right, side='right')
-        except Exception as e:
-          errRight = repr(e)
-
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2
       # we are able to prevent an update of one side. however, the loading-indicator will still be shown. 
       # track this bug here: https://github.com/plotly/dash/issues/1120
-
       return (
-        {} if errLeft else no_update if left_unchanged else retLeft, 
-        {} if errRight else no_update if right_unchanged else retRight,
-
-        no_update if errLeft is None else errLeft, # alert-text
-        not (errLeft is None), # alert is_open
-        no_update if errRight is None else errRight,
-        not (errRight is None)
+        no_update if left_unchanged else fn(**common, **left, side='left'), 
+        no_update if right_unchanged else fn(**common, **right, side='right')
         )
 
         
@@ -212,16 +183,28 @@ class WebInterface:
     structure_level = f"level_{structure_level}"
     sizeBy = f"shared_{aggregation_function}"
 
+
     if(gene1 == gene2):
       raise Exception("Co-expressions for the same gene of the same species make no sense and would lead to errors.")
 
-    result1 = Comparison.species_map[species](gene1).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
+    result1 = Comparison.species_map[species](gene1).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)
+    
+    if species in result1:
+      result1 = result1[species]
+    else:
+      result1 = { 'structure': None }
 
-    result2 = Comparison.species_map[species](gene2).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
+    result2 = Comparison.species_map[species](gene2).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)
 
     # sometimes, there is no coronal or sagittal data
+    if species in result2:
+      result2 = result2[species]
+    else:
+      result2 = { 'structure': None }
+      
         
-    data = Comparison.coexpression(result1, result2, aggregation_function, structure_level, gene1, gene2) 
+    data = Comparison.coexpression(result1, result2,
+      aggregation_function, structure_level, gene1, gene2) # hemisphere, 
 
     # https://plotly.com/python-api-reference/generated/plotly.express.scatter
     fig = px.scatter(Utils.sort_case_insensitive(data, structure_level), y=f"expression_level_{gene1}_{aggregation_function}", x=f"expression_level_{gene2}_{aggregation_function}"
@@ -239,6 +222,7 @@ class WebInterface:
 
     return fig
 
+  # TODO: there are some NaNs...
   def stackedBarsBySpecies(self, aggregation_function, structure_level, species, gene, side): # hemisphere, 
     result = Comparison.species_map[species](gene).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
 
@@ -260,10 +244,12 @@ class WebInterface:
             dbc.Row(
                 dbc.Col(
             dcc.Loading(html.Div(id={ 'type': 'grid', 'view': viewName }, children=[], className="mt-3"
-             ), color=self.loadingColor)
-          ))], className="p-2", style={ 'width': 'calc(100vw - 24px)'}) 
+             ), color=self.loadingColor) # style={ 'height': '100vh'} 
+          ))], className="p-2", style={ 'width': 'calc(100vw - 24px)'}) # ,  'height': 'calc(100vh - 120px)'
 
   def getTableData(self, species, gene, structure_level):
+    #data = []
+    #print(filters)
 
     result = Comparison.species_map[species](gene).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
 
@@ -297,11 +283,11 @@ class WebInterface:
                       ), inline=True, className="ml-4 mt-3")
                   ),
                   dbc.Row(
-                    dbc.Alert(children="", 
+                    dbc.Alert("This is a danger alert. Scary!", 
                     id={ 'type': 'alert', 'view': viewName, 'side': 'left'},
                     is_open=False, color="danger", className="ml-3 mr-2 mt-1 w-100"),
                   ),
-                  dbc.Row(html.Div(dcc.Loading( # TODO: move loading-panel to also encapsulate alerts. then, they will disappear on change of parameters
+                  dbc.Row(html.Div(dcc.Loading(
                     dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
                   ,color=self.loadingColor)), className="ml-2 mt-3")
                 ], className="border-right"),
@@ -313,7 +299,7 @@ class WebInterface:
                       ), inline=True, className="ml-4 mt-3")
                   ),
                   dbc.Row(
-                    dbc.Alert(children="", 
+                    dbc.Alert("This is a danger alert. Scary!", 
                     id={ 'type': 'alert', 'view': viewName, 'side': 'right'},
                     is_open=False, color="danger", className="ml-2 mr-3 mt-1 w-100"),
                   ),
@@ -328,6 +314,7 @@ class WebInterface:
   def downloadButton(self, viewName, **kwags):
     return [dbc.Button([html.I(className="fas fa-download fa-lg")], **kwags), dcc.Loading(Download(id={'type': 'download', 'view': viewName}), color=self.loadingColor)]
 
+
   def dropDownByList(self, lst, idProps, **kwags):
     return ([dbc.Label(lst.label, className="mr-2")] if not lst.label is None else []) + [dbc.Select(id={'type': lst.type, 'input': True, **idProps}, 
       options=[{ "label": g, "value": g } for g in lst.data], className="mr-3", **kwags)]
@@ -341,16 +328,27 @@ class WebInterface:
   def open_browser(self):
     Timer(1, self.__open).start()
     
+# TODO: https://github.com/plotly/react-pivottable/
+
+# TODO: allow log-scaled colors for better visualisation. 
 # https://stackoverflow.com/questions/36898008/seaborn-heatmap-with-logarithmic-scale-colorbar
 # => norm=LogNorm(), ...but this doesn't work with 0 or negative values
 def heatmap(data, title = None, subplots_adjust_parameters = None, xlabel = None, ylabel = None, **kwags):
+  # TODO: ask Jure whether we need tooltips on hovering data-points, e.g. to show the specific fine-structure's name (currently only the rank is given)
+  # TODO: always start at (0, 0) in every chart
 
-  fig = px.imshow(data)
+  fig = px.imshow(data
+                  #,labels=dict(x="Day of Week", y="Time of Day", color="Productivity"),
+                  #x=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                  #y=['Morning', 'Afternoon', 'Evening']
+  )
 
   fig.update_xaxes(
         tickangle = 45)
   fig.update_layout(
     autosize=True,
+    #height=700,
+    #width=700,
     margin=dict(l=0, r=0, t=25, b=10),
     title=title)
   

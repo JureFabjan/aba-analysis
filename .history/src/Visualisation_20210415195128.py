@@ -301,7 +301,7 @@ class WebInterface:
                     id={ 'type': 'alert', 'view': viewName, 'side': 'left'},
                     is_open=False, color="danger", className="ml-3 mr-2 mt-1 w-100"),
                   ),
-                  dbc.Row(html.Div(dcc.Loading( # TODO: move loading-panel to also encapsulate alerts. then, they will disappear on change of parameters
+                  dbc.Row(html.Div(dcc.Loading(
                     dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
                   ,color=self.loadingColor)), className="ml-2 mt-3")
                 ], className="border-right"),

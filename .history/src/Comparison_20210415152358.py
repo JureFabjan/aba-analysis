@@ -103,9 +103,9 @@ def findRegionAssignment(x, assignments, species):
 def addRegionAssignments(df, species):
   df.reset_index(inplace=True)
   df['regionAssignment'] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
-  return df[df['regionAssignment'].notnull()]
+  return df
 
-def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
+def byDonor(human, mouse, agg, matchBy = 'acronym'):
 
   # TODO: by region mapping. matchBy "shared_acronym"
   # Constants.RegionAssignments
@@ -130,7 +130,7 @@ def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
   
   #print(human['human'].structure['regionAssignment'])
   # TODO: merge using regionAssignments. check if/why dropna is not working
-  comp = merge([human] + [mouse], 'structure', matchBy, Utils.intersect(HumanMicroarrayData.VALUE_COLUMNS, MouseISHData.VALUE_COLUMNS))
+  comp = merge([human] + [mouse], 'regionAssignment', matchBy, Utils.intersect(HumanMicroarrayData.VALUE_COLUMNS, MouseISHData.VALUE_COLUMNS))
 
   # remove verbose structural details and remove glob-z-prefix to improve readability:
   comp = Utils.drop_columns_if(comp)

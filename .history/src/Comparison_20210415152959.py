@@ -103,7 +103,7 @@ def findRegionAssignment(x, assignments, species):
 def addRegionAssignments(df, species):
   df.reset_index(inplace=True)
   df['regionAssignment'] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
-  return df[df['regionAssignment'].notnull()]
+  return df[df['regionASsignment'].notnull()]
 
 def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
 

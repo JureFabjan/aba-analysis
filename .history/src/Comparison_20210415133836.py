@@ -100,12 +100,7 @@ def findRegionAssignment(x, assignments, species):
 
   return None
 
-def addRegionAssignments(df, species):
-  df.reset_index(inplace=True)
-  df['regionAssignment'] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
-  return df[df['regionAssignment'].notnull()]
-
-def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
+def byDonor(human, mouse, agg, matchBy = 'acronym'):
 
   # TODO: by region mapping. matchBy "shared_acronym"
   # Constants.RegionAssignments
@@ -114,23 +109,18 @@ def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
   # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html#pandas.DataFrame.apply
   
   # TODO i guess the index is used for matching, so reset_index might break the ability to set the column correctly
-  human['human'].structure = addRegionAssignments(human['human'].structure, 'Human')
-
-  #human['human'].structure.reset_index(inplace=True)
-  #human['human'].structure['regionAssignment'] = human['human'].structure.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Human', ))
+  human['human'].structure['regionAssignment'] = human['human'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Human', ))
   #human['human'].structure.dropna(inplace=True)
   
-  mouse['mouse - sagittal'].structure = addRegionAssignments(mouse['mouse - sagittal'].structure, 'Mouse')
-  #mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', ))
+  mouse['mouse - sagittal'].structure['regionAssignment'] = mouse['mouse - sagittal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', ))
   #mouse['mouse - sagittal'].structure.dropna(inplace=True)
 
-  mouse['mouse - coronal'].structure = addRegionAssignments(mouse['mouse - coronal'].structure, 'Mouse')
-  #mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', ))
+  mouse['mouse - coronal'].structure['regionAssignment'] = mouse['mouse - coronal'].structure.reset_index().apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, 'Mouse', ))
   #mouse['mouse - coronal'].structure.dropna(inplace=True)
   
   #print(human['human'].structure['regionAssignment'])
   # TODO: merge using regionAssignments. check if/why dropna is not working
-  comp = merge([human] + [mouse], 'structure', matchBy, Utils.intersect(HumanMicroarrayData.VALUE_COLUMNS, MouseISHData.VALUE_COLUMNS))
+  comp = merge([human] + [mouse], 'acronym', matchBy, Utils.intersect(HumanMicroarrayData.VALUE_COLUMNS, MouseISHData.VALUE_COLUMNS))
 
   # remove verbose structural details and remove glob-z-prefix to improve readability:
   comp = Utils.drop_columns_if(comp)

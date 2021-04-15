@@ -132,21 +132,21 @@ class WebInterface:
           retLeft = fn(**common, **left, side='left')
         except Exception as e:
           # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
-          errLeft = repr(e)
+          errLeft = str(repr(e))
 
       if not right_unchanged:
         try:
           retRight = fn(**common, **right, side='right')
         except Exception as e:
-          errRight = repr(e)
+          errRight = str(repr(e))
 
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2
       # we are able to prevent an update of one side. however, the loading-indicator will still be shown. 
       # track this bug here: https://github.com/plotly/dash/issues/1120
 
       return (
-        {} if errLeft else no_update if left_unchanged else retLeft, 
-        {} if errRight else no_update if right_unchanged else retRight,
+        no_update if left_unchanged else retLeft, 
+        no_update if right_unchanged else retRight,
 
         no_update if errLeft is None else errLeft, # alert-text
         not (errLeft is None), # alert is_open
@@ -301,7 +301,7 @@ class WebInterface:
                     id={ 'type': 'alert', 'view': viewName, 'side': 'left'},
                     is_open=False, color="danger", className="ml-3 mr-2 mt-1 w-100"),
                   ),
-                  dbc.Row(html.Div(dcc.Loading( # TODO: move loading-panel to also encapsulate alerts. then, they will disappear on change of parameters
+                  dbc.Row(html.Div(dcc.Loading(
                     dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
                   ,color=self.loadingColor)), className="ml-2 mt-3")
                 ], className="border-right"),

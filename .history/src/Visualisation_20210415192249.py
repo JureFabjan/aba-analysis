@@ -86,10 +86,10 @@ class WebInterface:
       # MATCH is a bit tricky. in this case, it basically says that all inputs and outputs need to belong to the same view
       [Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "figure"), 
        Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "figure"),
-       Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "children"),
-       Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "is_open"),
-       Output({'type': 'alert', 'side': 'right', 'view': MATCH}, "children"),
-       Output({'type': 'alert', 'side': 'right', 'view': MATCH}, "is_open")], 
+       Output({'type': 'error', 'side': 'left', 'view': MATCH}, "children"),
+       Output({'type': 'error', 'side': 'left', 'view': MATCH}, "is_open"),
+       Output({'type': 'error', 'side': 'right', 'view': MATCH}, "children")
+       Output({'type': 'error', 'side': 'right', 'view': MATCH}, "is_open")], 
        # we need to separate the side-specific graphs from the inputs. we use input: True to filter out non-input-controls
       [Input({'type': ALL, 'input': True, 'view': MATCH}, "value"), 
        Input({'type': ALL, 'input': True, 'side': 'left', 'view': MATCH}, "value"), 
@@ -121,37 +121,29 @@ class WebInterface:
       # the function used for creating the chart-figure is defined as a pointer in the views-object:
       fn = getattr(VIEWS, ctx.outputs_list[0]['id']['view']).fn
 
-      retLeft = None
-      retRight = None 
-
-      errLeft = None
-      errRight = None
-
-      if not left_unchanged:
-        try:
-          retLeft = fn(**common, **left, side='left')
-        except Exception as e:
-          # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
-          errLeft = repr(e)
-
-      if not right_unchanged:
-        try:
-          retRight = fn(**common, **right, side='right')
-        except Exception as e:
-          errRight = repr(e)
-
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2
       # we are able to prevent an update of one side. however, the loading-indicator will still be shown. 
       # track this bug here: https://github.com/plotly/dash/issues/1120
 
-      return (
-        {} if errLeft else no_update if left_unchanged else retLeft, 
-        {} if errRight else no_update if right_unchanged else retRight,
+      if not left_unchanged:
+        try:
+          retLeft = fn(**common, **left, side='left')
+        except e:
+          errLeft = e
 
+      if not right_unchanged:
+        try:
+          retLeft = fn(**common, **right, side='right')
+        except e:
+          errRight = e
+
+      return (
+        no_update if left_unchanged else fn(**common, **left, side='left'), 
+        no_update if right_unchanged else fn(**common, **right, side='right'),
+        not (errLeft is None), # is_open
         no_update if errLeft is None else errLeft, # alert-text
-        not (errLeft is None), # alert is_open
+        not (errRight is None),
         no_update if errRight is None else errRight,
-        not (errRight is None)
         )
 
         
@@ -297,11 +289,11 @@ class WebInterface:
                       ), inline=True, className="ml-4 mt-3")
                   ),
                   dbc.Row(
-                    dbc.Alert(children="", 
+                    dbc.Alert("This is a danger alert. Scary!", 
                     id={ 'type': 'alert', 'view': viewName, 'side': 'left'},
                     is_open=False, color="danger", className="ml-3 mr-2 mt-1 w-100"),
                   ),
-                  dbc.Row(html.Div(dcc.Loading( # TODO: move loading-panel to also encapsulate alerts. then, they will disappear on change of parameters
+                  dbc.Row(html.Div(dcc.Loading(
                     dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
                   ,color=self.loadingColor)), className="ml-2 mt-3")
                 ], className="border-right"),
@@ -313,7 +305,7 @@ class WebInterface:
                       ), inline=True, className="ml-4 mt-3")
                   ),
                   dbc.Row(
-                    dbc.Alert(children="", 
+                    dbc.Alert("This is a danger alert. Scary!", 
                     id={ 'type': 'alert', 'view': viewName, 'side': 'right'},
                     is_open=False, color="danger", className="ml-2 mr-3 mt-1 w-100"),
                   ),

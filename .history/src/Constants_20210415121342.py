@@ -41,20 +41,23 @@ STRUCTURE_LEVELS = Utils.simple({ 'label': 'Level', 'type': 'structure_level', '
 'data': [l for l in range(0,10)] })
 
 AGGREGATION_AGGREGATES = { 'min': np.min, 'max': np.max, 'mean': np.mean, 'var': np.mean }
+import json 
 
 class AllenSdkHelper:
-  def __init__(self):
-    self.rma = RmaApi() 
+  # def __init__(self):
+  #   self.rma = RmaApi() 
     
-    # TODO: only load this, if the file does not exist!
-    self.PlaneOfSections = self.rma.json_msg_query(
-            url="http://api.brain-map.org/api/v2/data/query.json?criteria=model::PlaneOfSection,rma::options[num_rows$eqall]"
-        )
+  #   # TODO: only load this, if the file does not exist!
+  #   self.PlaneOfSections = self.rma.json_msg_query(
+  #           url="http://api.brain-map.org/api/v2/data/query.json?criteria=model::PlaneOfSection,rma::options[num_rows$eqall]"
+  #       )
 
     # path=Utils.makedir(f'cache\\models') + '\\PlaneOfSection.json',
 
   def getPlaneOfSections(self):
-    return self.PlaneOfSections
+    with open('cache\\models\\PlaneOfSection.json') as f:
+      return json.load(f)   
+    #return self.PlaneOfSections
 
 allenSdkHelper = AllenSdkHelper()
 
@@ -64,10 +67,8 @@ __opposing = { 'Human': 'Mouse', 'Mouse': 'Human' }
 
 __regionAssignmentsRaw = pd.read_csv('annotations\\region assignment.csv', header=0)
 __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x: 
-    { (x[species].split(';')[0], x[species].split(';')[1]) :
-     { 'assignment': (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) ,
-     'name': x['Name'] }
-    } ,axis=1)
+    { (x[species].split(';')[0], x[species].split(';')[1]) 
+    : (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) } ,axis=1)
      for species in ['Human', 'Mouse'] }
 
 # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_dict.html
