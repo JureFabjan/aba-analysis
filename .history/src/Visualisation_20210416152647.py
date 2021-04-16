@@ -142,14 +142,12 @@ class WebInterface:
           retLeft = fn(**common, **left, side='left')
         except Exception as e:
           # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
-          print(repr(e))
           errLeft = repr(e)
 
       if not right_unchanged:
         try:
           retRight = fn(**common, **right, side='right')
         except Exception as e:
-          print(repr(e))
           errRight = repr(e)
 
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2

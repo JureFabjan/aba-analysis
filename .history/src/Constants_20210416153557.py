@@ -14,7 +14,7 @@ REGION_ASSIGNMENT = 'mapped region'
 
 VALUE_COLUMNS = [EXPR_LVL,GLOB_Z] 
 
-DATAFRAME_CACHE = "..\\cache\\data-frames\\"
+DATAFRAME_CACHE = "cache\\data-frames\\"
 
 # ! here, some magic happens. these lists define - amongst the available options in dropdowns, their labels, and defaults - also some interactions with the charts.
 # ! the type defines the named parameter that is provided to the chart-functions. 
@@ -64,7 +64,7 @@ PlaneOfSections = {x['id']: x['name'] for x in allenSdkHelper.getPlaneOfSections
 
 __opposing = { 'Human': 'Mouse', 'Mouse': 'Human' }
 
-__regionAssignmentsRaw = pd.read_csv('..\\annotations\\region assignment.csv', header=0)
+__regionAssignmentsRaw = pd.read_csv('.\\annotations\\region assignment.csv', header=0)
 __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x: 
     { (x[species].split(';')[0], x[species].split(';')[1]) :
      { 'assignment': (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) ,

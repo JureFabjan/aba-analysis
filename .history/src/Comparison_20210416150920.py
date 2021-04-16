@@ -47,7 +47,7 @@ def merge(dfs, dataset, merge_on, shared_columns):
 
       data = data[shared_columns]
       # drop na is fine. but we need to know when count = 0, so keep zeros
-      data = data.dropna()
+      #data = data.dropna()
 
       # add_suffix is not suitable, as it would also affect sub-level columns (e.g. mean, var, etc. of expression-levels)
       # https://stackoverflow.com/questions/57740319/how-to-add-prefix-to-multi-index-columns-at-particular-level
@@ -105,10 +105,10 @@ def addRegionAssignments(df, species):
   # ? comp contain joined data of human and mice. i.e. different species / experiments are provided as columns.
   # raw=True in order to only receive the ndarray instead of a Series. this is much faster, according to:
   # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html#pandas.DataFrame.apply
-  df[Constants.REGION_ASSIGNMENT] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
-  return df[df[Constants.REGION_ASSIGNMENT].notnull()]
+  df['regionAssignment'] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
+  return df[df['regionAssignment'].notnull()]
 
-def byDonor(human, mouse, agg, matchBy = Constants.REGION_ASSIGNMENT):
+def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
   
   human['human'].structure = addRegionAssignments(human['human'].structure, 'Human')
   mouse['mouse - sagittal'].structure = addRegionAssignments(mouse['mouse - sagittal'].structure, 'Mouse')

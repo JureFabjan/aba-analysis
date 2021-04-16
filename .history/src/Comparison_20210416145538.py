@@ -46,8 +46,9 @@ def merge(dfs, dataset, merge_on, shared_columns):
       data = getattr(el_data, dataset).reset_index().set_index(merge_on) # assigning this to a new var prevents mutating the original data-frames
 
       data = data[shared_columns]
-      # drop na is fine. but we need to know when count = 0, so keep zeros
-      data = data.dropna()
+      # done discuss with Jure: do we need to know if a species / donor has no samples in a probe?
+      # ! drop na is fine, count = 0 is import !!
+      # data = data.dropna() #data[data[(Constants.GLOB_Z, 'count')] > 0]
 
       # add_suffix is not suitable, as it would also affect sub-level columns (e.g. mean, var, etc. of expression-levels)
       # https://stackoverflow.com/questions/57740319/how-to-add-prefix-to-multi-index-columns-at-particular-level
@@ -55,7 +56,7 @@ def merge(dfs, dataset, merge_on, shared_columns):
 
       copies.append(data)
     
-  return reduce(lambda  acc, next: pd.merge(acc, next, left_index=True, right_index=True, how='outer'), copies)
+  return reduce(lambda  acc, next: pd.merge(acc, next, left_index=True, right_index=True, how='inner'), copies)
 
 
 def union(dfs, keys =['human', 'mouse']):
@@ -105,10 +106,10 @@ def addRegionAssignments(df, species):
   # ? comp contain joined data of human and mice. i.e. different species / experiments are provided as columns.
   # raw=True in order to only receive the ndarray instead of a Series. this is much faster, according to:
   # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html#pandas.DataFrame.apply
-  df[Constants.REGION_ASSIGNMENT] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
-  return df[df[Constants.REGION_ASSIGNMENT].notnull()]
+  df['regionAssignment'] = df.apply(findRegionAssignment, axis=1, raw=True, args=(Constants.RegionAssignments.asDict, species, ))
+  return df[df['regionAssignment'].notnull()]
 
-def byDonor(human, mouse, agg, matchBy = Constants.REGION_ASSIGNMENT):
+def byDonor(human, mouse, agg, matchBy = 'regionAssignment'):
   
   human['human'].structure = addRegionAssignments(human['human'].structure, 'Human')
   mouse['mouse - sagittal'].structure = addRegionAssignments(mouse['mouse - sagittal'].structure, 'Mouse')

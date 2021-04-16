@@ -14,7 +14,7 @@ REGION_ASSIGNMENT = 'mapped region'
 
 VALUE_COLUMNS = [EXPR_LVL,GLOB_Z] 
 
-DATAFRAME_CACHE = "..\\cache\\data-frames\\"
+DATAFRAME_CACHE = "cache\\data-frames\\"
 
 # ! here, some magic happens. these lists define - amongst the available options in dropdowns, their labels, and defaults - also some interactions with the charts.
 # ! the type defines the named parameter that is provided to the chart-functions. 

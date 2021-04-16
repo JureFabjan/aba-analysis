@@ -41,10 +41,8 @@ class WebInterface:
 
     self.app.title = "Gene-expression comparison"
     self.header = 'Z-score gene-expression by species & region'
-    self.description = [
-      "All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. For some genes, coronal data is not available.",
-      html.Br(), 
-      "Double-click on a legend-entry to isolate associated data-points, e.g. to only view co-expressions of a specific region."]
+    self.description = ["""All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. For some genes, coronal data is not available. Double-click on a legend-entry to isolate associated data-points, e.g. to analyse co-expression for a specific region.""",
+    dbc.br(), "Test"]
     self.downloads = {}
 
     self.loadingColor = "#88888888"
@@ -59,7 +57,7 @@ class WebInterface:
     # https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/
     self.app.layout = html.Div([
         html.H1(self.header, className="p-2 pl-4"),
-        html.P(self.description, className="p-1 pl-4"),
+        html.P(self.description, className="p-1 pl-4", style={ 'max-width': '1280px'}),
         # TODO: explain z-score with a tooltip: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/tooltip/ 
         #html.Div([html.Button("Download", id="btn"), Download(id="download")]),
         
@@ -142,14 +140,12 @@ class WebInterface:
           retLeft = fn(**common, **left, side='left')
         except Exception as e:
           # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
-          print(repr(e))
           errLeft = repr(e)
 
       if not right_unchanged:
         try:
           retRight = fn(**common, **right, side='right')
         except Exception as e:
-          print(repr(e))
           errRight = repr(e)
 
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2

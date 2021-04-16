@@ -60,11 +60,13 @@ webApp = Visualisation.WebInterface(__name__)
 webApp.run_server(debug=False)
 sys.exit()
 
-# def export(human, mouse, gene):
-#   FormattedExport.to_excel(getattr(human, gene).data.structure, f'export\\human_agg_{gene}.xlsx') # , columns_and_rows_to_freeze='M2'
+#Visualisation.grid(comp.reset_index()) # reset_index to allow using acronym in an axis in the grid's grapher-tool
+
+def export(human, mouse, gene):
+  FormattedExport.to_excel(getattr(human, gene).data.structure, f'export\\human_agg_{gene}.xlsx') # , columns_and_rows_to_freeze='M2'
   
-#   mouse_gene = getattr(mouse, gene)
-#   for i in range(0, len(mouse_gene)):
-#     FormattedExport.to_excel(mouse_gene[i].data.structure, f'export\\{mouse_gene[i].name}_agg_{gene}.xlsx')
+  mouse_gene = getattr(mouse, gene)
+  for i in range(0, len(mouse_gene)):
+    FormattedExport.to_excel(mouse_gene[i].data.structure, f'export\\{mouse_gene[i].name}_agg_{gene}.xlsx')
 
 # https://binx.io/blog/2020/03/05/setting-python-source-folders-vscode/
