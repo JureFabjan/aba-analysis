@@ -84,13 +84,10 @@ class WebInterface:
     # see https://dash-bootstrap-components.opensource.faculty.ai/docs/components/input/
     @self.app.callback( 
       # MATCH is a bit tricky. in this case, it basically says that all inputs and outputs need to belong to the same view
-      # for a doc on available output-properties (figure, hidden, etc.), check out: https://dash.plotly.com/dash-html-components/output
       [Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "figure"), 
-      # graphs do NOT have a 'hidden'-property. setting their style in the callback would override previously set style-settings, such as the graph's dimensions.
-      # instead, we use a wrapper-div, which provides us with a hidden property.
-       Output({'type': 'graph-container', 'side': 'left', 'view': MATCH}, "hidden"), 
+       Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "hidden "), 
        Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "figure"),
-       Output({'type': 'graph-container', 'side': 'right', 'view': MATCH}, "hidden"),
+       Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "hidden "),
        Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "children"),
        Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "is_open"),
        Output({'type': 'alert', 'side': 'right', 'view': MATCH}, "children"),
@@ -151,9 +148,9 @@ class WebInterface:
 
       return (
         {} if errLeft else no_update if left_unchanged else retLeft, 
-        not not errLeft,
+        errLeft,
         {} if errRight else no_update if right_unchanged else retRight,
-        not not errRight,
+        errRight,
         no_update if errLeft is None else errLeft, # alert-text
         not (errLeft is None), # alert is_open
         no_update if errRight is None else errRight,
@@ -311,7 +308,7 @@ class WebInterface:
                     dbc.Row(
                       html.Div(
                         dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
-                      ,id={ 'type': 'graph-container', 'view': viewName, 'side': 'left'}), className="ml-2 mt-3")
+                      ), className="ml-2 mt-3")
                   ],color=self.loadingColor, className="w-100 h-100")
                 ], className="border-right"), # end of left col
                 dbc.Col([ # start of right col
@@ -329,7 +326,7 @@ class WebInterface:
                   ),
                   dbc.Row(html.Div(
                     dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'right'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
-                 ,id={ 'type': 'graph-container', 'view': viewName, 'side': 'right'}), className="ml-2 mt-3")
+                 ), className="ml-2 mt-3")
                 ] ,color=self.loadingColor)
                 ]) # end of right col
           ])

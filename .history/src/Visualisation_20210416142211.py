@@ -86,8 +86,6 @@ class WebInterface:
       # MATCH is a bit tricky. in this case, it basically says that all inputs and outputs need to belong to the same view
       # for a doc on available output-properties (figure, hidden, etc.), check out: https://dash.plotly.com/dash-html-components/output
       [Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "figure"), 
-      # graphs do NOT have a 'hidden'-property. setting their style in the callback would override previously set style-settings, such as the graph's dimensions.
-      # instead, we use a wrapper-div, which provides us with a hidden property.
        Output({'type': 'graph-container', 'side': 'left', 'view': MATCH}, "hidden"), 
        Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "figure"),
        Output({'type': 'graph-container', 'side': 'right', 'view': MATCH}, "hidden"),

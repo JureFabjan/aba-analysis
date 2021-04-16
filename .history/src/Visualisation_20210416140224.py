@@ -84,13 +84,10 @@ class WebInterface:
     # see https://dash-bootstrap-components.opensource.faculty.ai/docs/components/input/
     @self.app.callback( 
       # MATCH is a bit tricky. in this case, it basically says that all inputs and outputs need to belong to the same view
-      # for a doc on available output-properties (figure, hidden, etc.), check out: https://dash.plotly.com/dash-html-components/output
       [Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "figure"), 
-      # graphs do NOT have a 'hidden'-property. setting their style in the callback would override previously set style-settings, such as the graph's dimensions.
-      # instead, we use a wrapper-div, which provides us with a hidden property.
-       Output({'type': 'graph-container', 'side': 'left', 'view': MATCH}, "hidden"), 
+       Output({'type': 'graph', 'side': 'left', 'view': MATCH}, "style"), 
        Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "figure"),
-       Output({'type': 'graph-container', 'side': 'right', 'view': MATCH}, "hidden"),
+       Output({'type': 'graph', 'side': 'right', 'view': MATCH}, "style"),
        Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "children"),
        Output({'type': 'alert', 'side': 'left', 'view': MATCH}, "is_open"),
        Output({'type': 'alert', 'side': 'right', 'view': MATCH}, "children"),
@@ -151,9 +148,9 @@ class WebInterface:
 
       return (
         {} if errLeft else no_update if left_unchanged else retLeft, 
-        not not errLeft,
+        { 'display': 'none' } if errLeft else  {'display' : 'block'},
         {} if errRight else no_update if right_unchanged else retRight,
-        not not errRight,
+        { 'display': 'none' } if errRight else  {'display' : 'block'},
         no_update if errLeft is None else errLeft, # alert-text
         not (errLeft is None), # alert is_open
         no_update if errRight is None else errRight,
@@ -219,7 +216,7 @@ class WebInterface:
     sizeBy = f"shared_{aggregation_function}"
 
     if(gene1 == gene2):
-      raise Exception("Co-expressions for the same gene of the same species make no sense.")
+      raise Exception("Co-expressions for the same gene of the same species make no sense and would lead to errors.")
 
     result1 = Comparison.species_map[species](gene1).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
 
@@ -287,7 +284,7 @@ class WebInterface:
   # TODO: two range-sliders (for x and y) on common-control-div to allow synchronization of axis. 
   # # TODO or maybe is it possible to callback to hidden controls to then trigger updates on the axis?
   def sideBySideView(self, viewName, commonFilters, sideFilters):
-    dimensions = Utils.simple({ 'w': 'calc(49vw - 30px)', 'h': 'calc(100vh - 320px)' })
+    dimensions = Utils.simple({ 'w': 'calc(49vw - 30px)', 'h': 'calc(100vh - 370px)' })
 
     return html.Div([
           dbc.Card(dbc.CardBody(
@@ -295,43 +292,41 @@ class WebInterface:
             dbc.FormGroup(Utils.unpack(self.dropDownByList(lst, {'type': lst.type, 'view': viewName}, value=lst.default) for lst in commonFilters))
           , inline=True), className="p-2")),
           dbc.Row([
-                dbc.Col([ # start of left col
+                dbc.Col([
                   dbc.Row(
                     dbc.Form(
                       dbc.FormGroup( # TODO: make this responsive, because they overlap on smaller screens
                         Utils.unpack(self.dropDownByList(lst, {'type': lst.type, 'side': 'left', 'view': viewName}, value=lst.defaultLeft) for lst in sideFilters)
                       ), inline=True, className="ml-4 mt-3")
                   ),
-                  dcc.Loading([ # TODO: move loading-panel to also encapsulate alerts. then, they will disappear on change of parameters
+                  html.Div(dcc.Loading( # TODO: move loading-panel to also encapsulate alerts. then, they will disappear on change of parameters
                     dbc.Row(
                       dbc.Alert(children="", 
                       id={ 'type': 'alert', 'view': viewName, 'side': 'left'},
                       is_open=False, color="danger", className="ml-3 mr-2 mt-1 w-100"),
                     ),
                     dbc.Row(
-                      html.Div(
-                        dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
-                      ,id={ 'type': 'graph-container', 'view': viewName, 'side': 'left'}), className="ml-2 mt-3")
-                  ],color=self.loadingColor, className="w-100 h-100")
-                ], className="border-right"), # end of left col
-                dbc.Col([ # start of right col
+                      dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'left'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
+                    ), className="ml-2 mt-3")
+                  ], className="border-right")
+                ,color=self.loadingColor)
+                ,
+                dbc.Col([
                   dbc.Row(
                     dbc.Form(
                       dbc.FormGroup(
                         Utils.unpack(self.dropDownByList(lst, {'type': lst.type, 'side': 'right', 'view': viewName}, value=lst.defaultRight) for lst in sideFilters)
                       ), inline=True, className="ml-4 mt-3")
                   ),
-                  dcc.Loading([
                   dbc.Row(
                     dbc.Alert(children="", 
                     id={ 'type': 'alert', 'view': viewName, 'side': 'right'},
                     is_open=False, color="danger", className="ml-2 mr-3 mt-1 w-100"),
                   ),
-                  dbc.Row(html.Div(
+                  dbc.Row(html.Div(dcc.Loading(
                     dcc.Graph(id={ 'type': 'graph', 'view': viewName, 'side': 'right'}, config={'scrollZoom': True}, style={'width': dimensions.w, 'height': dimensions.h})
-                 ,id={ 'type': 'graph-container', 'view': viewName, 'side': 'right'}), className="ml-2 mt-3")
-                ] ,color=self.loadingColor)
-                ]) # end of right col
+                 ,color=self.loadingColor)), className="ml-2 mt-3")
+                ])
           ])
         ], className="p-2", style={ 'width': 'calc(100vw - 8px)'})
 
