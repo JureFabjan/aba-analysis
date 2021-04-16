@@ -59,8 +59,8 @@ class WebInterface:
 
     # https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/
     self.app.layout = html.Div([
-        html.H1(self.header, className="pl-4 pt-2"),
-        html.Span(self.credits, className="pl-4 text-muted", style={ 'position': 'relative', 'top': '-18px'}),
+        html.H1(self.header, className="pl-4 pt-2 mb-0"),
+        html.Span(self.credits, className="pl-4 text-muted", style={ 'position': 'relative', 'top': '-10px'}),
         html.P(self.description, className="pl-4"),
         # TODO: explain z-score with a tooltip: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/tooltip/ 
         #html.Div([html.Button("Download", id="btn"), Download(id="download")]),
