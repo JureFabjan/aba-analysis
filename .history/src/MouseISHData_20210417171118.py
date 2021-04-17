@@ -80,11 +80,15 @@ class MouseISHData:
           # http://help.brain-map.org/display/mousebrain/API
           
           try:
+              # https://community.brain-map.org/t/whole-mouse-brain-gene-expression-data/447/4
+              # explanation of what "energy" means here:
+              # expression density = sum of expressing pixels / sum of all pixels in division
+              # expression intensity = sum of expressing pixel intensity / sum of expressing pixels
+              # expression energy = expression intensity * expression density
+
               gdApi.download_gene_expression_grid_data(exp_id, GridDataApi.ENERGY, exp_path)
 
               expression_levels = np.fromfile(exp_path + "energy.raw",  dtype=np.float32)
-              
-              #print(expression_levels.reshape((200, 200, 200)))
 
               # According to the doc @ http://help.brain-map.org/display/api/Downloading+3-D+Expression+Grid+Data
               # we have "A raw uncompressed float (32-bit) little-endian volume representing average expression energy per voxel. 
@@ -94,7 +98,7 @@ class MouseISHData:
               # some expression_levels are assigned to a structure of id 0. same is true for Jure's approach.
               # according to the Allen institue, this is just due to background-noise: 
               # https://community.brain-map.org/t/how-to-acquire-the-structure-label-for-the-expression-grid-data/150/4
-              # values of -1 mean "no value"
+              # values of -1 mean "no value obtained", hence we filter them out:
               data = data[(data.expression_level != -1) & (data.structure_id != 0)]
 
               data["global-z-score"] = Utils.z_score(data.expression_level)

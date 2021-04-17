@@ -50,11 +50,10 @@ class WebInterface:
 
     self.loadingColor = "#88888888"
     VIEWS = Utils.simple({
-    'coexpressions': Utils.simple({ 'name': 'coexpressions', 'fn': self.coexpressions}), 
-    'stackedBarsBySpecies': Utils.simple({'name': 'stackedBarsBySpecies', 'fn': self.stackedBarsBySpecies}),
-    'allSpecies': Utils.simple({ 'name': 'allSpecies', 'fn': self.heatmapByRegion}),
-    'gridView': Utils.simple({ 'name': 'gridView', 'fn': self.getTableData})
-    
+      'coexpressions': Utils.simple({ 'name': 'coexpressions', 'fn': self.coexpressions}), 
+      'stackedBarsBySpecies': Utils.simple({'name': 'stackedBarsBySpecies', 'fn': self.stackedBarsBySpecies}),
+      'allSpecies': Utils.simple({ 'name': 'allSpecies', 'fn': self.heatmapByRegion}),
+      'gridView': Utils.simple({ 'name': 'gridView', 'fn': self.getTableData})
     })
 
     # https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/
@@ -63,10 +62,7 @@ class WebInterface:
         html.Span(self.credits, className="pl-4 text-muted", style={ 'position': 'relative', 'top': '-18px'}),
         html.P(self.description, className="pl-4"),
         # TODO: explain z-score with a tooltip: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/tooltip/ 
-        #html.Div([html.Button("Download", id="btn"), Download(id="download")]),
-        
         dbc.Tabs([
-          # TODO: HEMISPHERES? (only available for human). 
           dbc.Tab(self.sideBySideView(VIEWS.allSpecies.name, [AGGREGATION_FUNCTIONS], [GENE_LIST]),  
             label="Expression-heatmaps"),
           dbc.Tab(self.sideBySideView(VIEWS.coexpressions.name, [AGGREGATION_FUNCTIONS], [SPECIES, GENE1_LIST, GENE2_LIST, STRUCTURE_LEVELS]),

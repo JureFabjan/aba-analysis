@@ -64,7 +64,7 @@ PlaneOfSections = {x['id']: x['name'] for x in allenSdkHelper.getPlaneOfSections
 
 __opposing = { 'Human': 'Mouse', 'Mouse': 'Human' }
 
-__regionAssignmentsRaw = pd.read_csv('..\\annotations\\region assignment.csv', header=0)
+__regionAssignmentsRaw = pd.read_csv('.\\..\\annotations\\region assignment.csv', header=0)
 __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x: 
     { (x[species].split(';')[0], x[species].split(';')[1]) :
      { 'assignment': (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) ,

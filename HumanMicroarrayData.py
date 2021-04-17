@@ -1,15 +1,11 @@
 from allensdk.api.queries.rma_api import RmaApi
-#from allensdk.api.cache import Cache
-#
+
 from types import SimpleNamespace
-
-
 
 import numpy as np
 import pandas as pd
 import glob
 
-import functools
 import concurrent
 import concurrent.futures
 
@@ -48,7 +44,6 @@ class HumanMicroarrayData:
 
     samples = expressionData["samples"] # we hereby prevent a dict-lookup for each probe, because its always the same data used over and over again
 
-    #i = 1
     for probe in expressionData["probes"]:
       # https://stackoverflow.com/questions/30522724/take-multiple-lists-into-dataframe
       # we need to map each probe to the sample-annotations (see MicroarrayData_Readme.txt, provided by the Allen Institue).
@@ -105,7 +100,6 @@ class HumanMicroarrayData:
     #print('HumanMicroarrayData.transformExpressionData() done')
     return data 
   
-  # @functools.lru_cache(maxsize= 128)
   def get(self, from_cache, aggregations):
   
     if from_cache:
