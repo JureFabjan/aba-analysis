@@ -15,7 +15,6 @@ import dash_table # https://community.plotly.com/t/loading-pandas-dataframe-into
 import pandas as pd
 import webbrowser
 from threading import Timer
-import traceback
 
 from HumanMicroarrayData import HumanMicroarrayData
 from MouseISHData import MouseISHData
@@ -141,14 +140,14 @@ class WebInterface:
           retLeft = fn(**common, **left, side='left')
         except Exception as e:
           # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
-          traceback.print_exc()
+          print_exc(e)
           errLeft = repr(e)
 
       if not right_unchanged:
         try:
           retRight = fn(**common, **right, side='right')
         except Exception as e:
-          traceback.print_exc()
+          print_exc(e)
           errRight = repr(e)
 
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2
