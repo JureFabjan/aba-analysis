@@ -21,7 +21,7 @@ from HumanMicroarrayData import HumanMicroarrayData
 from MouseISHData import MouseISHData
 
 import Comparison
-from Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, HEMISPHERES, SPECIES, STRUCTURE_LEVELS
+from Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, SPECIES, STRUCTURE_LEVELS
 
 import json
 import Utils 
@@ -44,7 +44,7 @@ class WebInterface:
     self.header = 'Z-score gene-expression by species & region'
     self.credits ="by Christoph Hüsson"
     self.description = [
-      "All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. For some genes, coronal data is not available.",
+      "All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. However, for some genes, coronal data is not available for mice.",
       html.Br(), 
       "Double-click on a legend-entry to isolate associated data-points, e.g. to only view co-expressions of a specific region."]
     self.downloads = {}

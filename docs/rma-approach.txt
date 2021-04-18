@@ -1,0 +1,22 @@
+from types import SimpleNamespace
+
+self.geneAcronym = "Gabra4"
+
+rma = RmaApi() 
+
+query = ("http://api.brain-map.org/api/v2/data/query.json?criteria="
+              f"model::Probe,rma::criteria,gene[acronym$il{self.geneAcronym}],products[id$eq2],rma::options[num_rows$eqall],"
+              "pipe::list[probes$eq'id'],"
+              "service::human_microarray_expression[probes$eq$probes]")
+      
+expressionData = rma.json_msg_query(url=query)
+
+combined = SimpleNamespace()
+setattr(combined, 'z_scores', [])
+
+for probe in expressionData["probes"]:
+	combined.z_scores += probe["z-score"] 
+
+sorted_z_scores = np.asarray(combined.z_scores, dtype=np.float32)
+sorted_z_scores.sort()
+np.savetxt(f"api_z-score.csv", sorted_z_scores, delimiter=",")

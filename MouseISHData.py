@@ -33,24 +33,17 @@ class MouseISHData:
       # See `Downloading 3-D Projection Grid Data <http://help.brain-map.org/display/api/Downloading+3-D+Expression+Grid+Data#name="Downloading3-DExpressionGridData-DOWNLOADING3DPROJECTIONGRIDDATA">`_
       gdApi = GridDataApi()
 
-      # the cache_writeer allows us to easily cache the results
-      
-
       # http://api.brain-map.org/examples/rma_builder/index.html
       # http://api.brain-map.org/examples/rma_builder/rma_builder.html
       # https://allensdk.readthedocs.io/en/latest/data_api_client.html
-      sectionDataSets = pd.DataFrame( # wrap is told to be deprecated, but there is no information on what to use instead :(
+      sectionDataSets = pd.DataFrame( 
           rma.model_query(                
-                #cache=not from_cache, # the semantics of this function are a bit weird. providing True means: add it to the cache
                 model='SectionDataSet',
                 #! criteria="plane_of_section[name$eqcoronal]", note that saggital only spans the left hemisphere, so this is tough to compare with human data.
                 filters={'failed':'false'},
                 include=f"genes[acronym$il{self.geneAcronym}],products[id$eq1]", # $il = case-insensitive like | yes, weird notation... id = 1 = mouse brain atlas (not developing!)
                 num_rows='all')
       )
-
-      # TODO: save the data, but preferably in json
-      # Utils.save(sectionDataSets, Utils.makedir(f'cache\\mouse_section-datasets\\{self.geneAcronym}'), 'cache.json')
        
       # model's documentation: http://api.brain-map.org/doc/SectionDataSet.html
       # https://community.brain-map.org/t/attempting-to-download-substructures-for-coronal-p56-mouse-atlas/174/2
@@ -68,7 +61,7 @@ class MouseISHData:
 
       for index, row in sectionDataSets.iterrows(): # https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
           exp_id = row['id']
-          exp_path = f"data\\{exp_id}\\"
+          exp_path = f"cache\\mouse_ish-expr\\{exp_id}\\"
 
           # https://allensdk.readthedocs.io/en/latest/_static/examples/nb/reference_space.html#Constructing-a-structure-tree
           # TODO: this should allow us to circumvent having pre-packaged grid-annotations.

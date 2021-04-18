@@ -6,8 +6,15 @@ import pickle
 from types import SimpleNamespace
 import itertools
 
-GLOB_Z = 'global-z-score'
-
+class DropDownListConfiguration:
+  def __init__(self, label, type, data, default, defaultLeft = None, defaultRight = None):
+    self.label = label;
+    self.type = type;
+    self.data = data;
+    self.default = default;
+    self.defaultLeft = defaultLeft;
+    self.defaultRight = defaultRight;
+    
 def z_score(data_col):
   # https://intellipaat.com/community/20492/pandas-compute-z-score-for-all-columns  
   # from https://www.statisticshowto.com/probability-and-statistics/z-score/: 

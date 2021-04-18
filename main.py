@@ -40,8 +40,6 @@
 # normalization?
 
 import sys
-
-# our code
 import Visualisation
 
 webApp = Visualisation.WebInterface(__name__) 

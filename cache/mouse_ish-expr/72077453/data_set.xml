@@ -1,0 +1,1939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section-data-set>
+  <blue-channel nil="true"/>
+  <delegate>false</delegate>
+  <expression>true</expression>
+  <failed>false</failed>
+  <failed-facet>734881840</failed-facet>
+  <green-channel nil="true"/>
+  <id>72077453</id>
+  <name nil="true"/>
+  <qc-date>2009-05-02T23:00:13Z</qc-date>
+  <red-channel nil="true"/>
+  <reference-space-id>9</reference-space-id>
+  <rnaseq-design-id nil="true"/>
+  <section-thickness>25.0</section-thickness>
+  <specimen-id>71185726</specimen-id>
+  <sphinx-id>43715</sphinx-id>
+  <storage-directory>/external/aibssan/production32/prod337/image_series_72077453/</storage-directory>
+  <weight>5470</weight>
+  <products>
+    <product>
+      <abbreviation>DevMouse</abbreviation>
+      <description>High-resolution ISH data detailing expression patterns of ~2,000 genes across mouse brain development.</description>
+      <id type="integer">3</id>
+      <name>Developing Mouse Brain</name>
+      <product-name-facet type="integer">2290087187</product-name-facet>
+      <resource>Allen Developing Mouse Brain Atlas</resource>
+      <species>Mouse</species>
+      <species-name-facet type="integer">1861523945</species-name-facet>
+      <tags nil="true"/>
+    </product>
+    <product>
+      <abbreviation>Mouse</abbreviation>
+      <description>Genome-wide, high-resolution ISH data detailing gene expression throughout the adult mouse brain.</description>
+      <id type="integer">1</id>
+      <name>Mouse Brain</name>
+      <product-name-facet type="integer">2757464828</product-name-facet>
+      <resource>Allen Mouse Brain Atlas</resource>
+      <species>Mouse</species>
+      <species-name-facet type="integer">1861523945</species-name-facet>
+      <tags nil="true"/>
+    </product>
+  </products>
+  <specimen>
+    <cell-prep-sample-id type="integer" nil="true"/>
+    <cell-reporter-id type="integer" nil="true"/>
+    <cortex-layer-id type="integer" nil="true"/>
+    <data nil="true"/>
+    <donor-id type="integer">6673</donor-id>
+    <ephys-result-id type="integer" nil="true"/>
+    <external-specimen-name nil="true"/>
+    <failed-facet type="integer">734881840</failed-facet>
+    <hemisphere>(none)</hemisphere>
+    <id type="integer">71185726</id>
+    <is-cell-specimen type="boolean">false</is-cell-specimen>
+    <is-ish type="boolean">false</is-ish>
+    <name>05-2927</name>
+    <parent-id type="integer" nil="true"/>
+    <parent-x-coord type="integer" nil="true"/>
+    <parent-y-coord type="integer" nil="true"/>
+    <parent-z-coord type="integer" nil="true"/>
+    <pinned-radius type="float" nil="true"/>
+    <rna-integrity-number type="float" nil="true"/>
+    <specimen-id-path>/71185726/</specimen-id-path>
+    <sphinx-id type="integer">24659</sphinx-id>
+    <structure-id type="integer" nil="true"/>
+    <tissue-ph type="float" nil="true"/>
+    <treatment-id type="integer" nil="true"/>
+    <weight type="integer">9000</weight>
+    <donor>
+      <age-id type="integer">15</age-id>
+      <chemotherapy nil="true"/>
+      <condition-description nil="true"/>
+      <data nil="true"/>
+      <date-of-birth type="datetime" nil="true"/>
+      <donor-condition-description-facet type="integer" nil="true"/>
+      <donor-race-only-facet type="integer" nil="true"/>
+      <donor-sex-facet type="integer">4122955671</donor-sex-facet>
+      <donor-strain-facet type="integer">4276187917</donor-strain-facet>
+      <donor-strain-only-facet type="integer">4276187917</donor-strain-only-facet>
+      <egfr-amplification nil="true"/>
+      <extent-of-resection nil="true"/>
+      <external-donor-name nil="true"/>
+      <full-genotype nil="true"/>
+      <handedness>unknown</handedness>
+      <id type="integer">6673</id>
+      <initial-kps nil="true"/>
+      <mgmt-ihc type="integer" nil="true"/>
+      <mgmt-methylation nil="true"/>
+      <molecular-subtype nil="true"/>
+      <multifocal nil="true"/>
+      <name>05-2927</name>
+      <organism-id type="integer">2</organism-id>
+      <pmi type="float">0.0</pmi>
+      <primary-tissue-source>AIBS</primary-tissue-source>
+      <pten-deletion nil="true"/>
+      <race-only nil="true"/>
+      <radiation-therapy nil="true"/>
+      <recurrence-by-six-months nil="true"/>
+      <sex>M</sex>
+      <sex-full-name>Male</sex-full-name>
+      <sleep-state nil="true"/>
+      <smoker nil="true"/>
+      <strain>C57BL/6J</strain>
+      <strain-only>C57BL/6J</strain-only>
+      <survival-days type="integer" nil="true"/>
+      <tags>05-2927 unknown</tags>
+      <theiler-stage nil="true"/>
+      <time-to-progression-or-recurrence nil="true"/>
+      <transgenic-mouse-id type="integer" nil="true"/>
+      <tumor-status nil="true"/>
+      <weight-grams type="float" nil="true"/>
+    </donor>
+  </specimen>
+  <alignment3d>
+    <id type="integer">342679438</id>
+    <trv>0.0229407,0.00199765,0.954786,-0.0223019,0.94321,-0.000868446,-0.984205,-0.0207154,0.0233722,835.009,1398.31,13329.8</trv>
+    <tvr>0.0248249,-0.0223438,-1.01496,0.00155076,1.05968,-0.023976,1.04676,-0.00168026,0.0244367,13539.7,-1163.46,-1197.44</tvr>
+  </alignment3d>
+  <section-images>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303011149/0303011149_2_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">3713</height>
+      <id type="integer">71959261</id>
+      <image-height type="integer">3713</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">5521</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959261</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303011149/Gabra5_2_0303011149_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">2</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">5521</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681153</id>
+        <tvs>0.951255,-0.0622395,0.0622395,0.951255,-2702.59,-3420.77</tvs>
+        <tsv>1.04676,0.0684884,-0.0684884,1.04676,3063.25,3395.63</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303011149/0303011149_10_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">4529</height>
+      <id type="integer">71959263</id>
+      <image-height type="integer">4529</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">5633</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959263</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303011149/Gabra5_10_0303011149_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">10</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">5633</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681155</id>
+        <tvs>0.951255,-0.0622395,0.0622395,0.951255,-2573.97,-2899.24</tvs>
+        <tsv>1.04676,0.0684884,-0.0684884,1.04676,2892.9,2858.52</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303011149/0303011149_18_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">4785</height>
+      <id type="integer">71959265</id>
+      <image-height type="integer">4785</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">5489</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959265</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303011149/Gabra5_18_0303011149_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">18</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">5489</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681157</id>
+        <tvs>0.951062,-0.0651159,0.0651159,0.951062,-2850.62,-2893.9</tvs>
+        <tsv>1.04655,0.0716536,-0.0716536,1.04655,3190.67,2824.35</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303011149/0303011149_26_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5505</height>
+      <id type="integer">71959267</id>
+      <image-height type="integer">5505</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">5105</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959267</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303011149/Gabra5_26_0303011149_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">26</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">5105</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681159</id>
+        <tvs>0.950309,-0.0753148,0.0753148,0.950309,-3365.88,-2987.82</tvs>
+        <tsv>1.04572,0.0828765,-0.0828765,1.04572,3767.4,2845.48</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303021251/0303021251_34_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6545</height>
+      <id type="integer">71959271</id>
+      <image-height type="integer">6545</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">6177</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959271</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303021251/Gabra5_34_0303021251_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">34</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">6177</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681161</id>
+        <tvs>0.950093,-0.0779977,0.0779977,0.950093,-3126.1,-2509.31</tvs>
+        <tsv>1.04548,0.0858287,-0.0858287,1.04548,3483.65,2355.13</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303021251/0303021251_42_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6145</height>
+      <id type="integer">71959273</id>
+      <image-height type="integer">6145</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7137</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959273</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303021251/Gabra5_42_0303021251_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">42</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7137</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681163</id>
+        <tvs>0.950212,-0.076529,0.076529,0.950212,-2446.24,-2832.83</tvs>
+        <tsv>1.04561,0.0842126,-0.0842126,1.04561,2796.38,2756.05</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303021251/0303021251_50_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5761</height>
+      <id type="integer">71959275</id>
+      <image-height type="integer">5761</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7585</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959275</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303021251/Gabra5_50_0303021251_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">50</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7585</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681165</id>
+        <tvs>0.950594,-0.0716332,0.0716332,0.950594,-1941.67,-2787.91</tvs>
+        <tsv>1.04603,0.0788252,-0.0788252,1.04603,2250.81,2763.2</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303021251/0303021251_58_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5761</height>
+      <id type="integer">71959277</id>
+      <image-height type="integer">5761</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8161</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959277</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303021251/Gabra5_58_0303021251_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">58</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">8161</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681167</id>
+        <tvs>0.950618,-0.071314,0.071314,0.950618,-1765.74,-2833.79</tvs>
+        <tsv>1.04606,0.0784739,-0.0784739,1.04606,2069.45,2825.75</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303031269/0303031269_66_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6961</height>
+      <id type="integer">71959281</id>
+      <image-height type="integer">6961</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7665</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959281</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303031269/Gabra5_66_0303031269_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">66</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7665</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681169</id>
+        <tvs>0.951443,-0.0592947,0.0592947,0.951443,-1961.7,-2053.51</tvs>
+        <tsv>1.04697,0.0652479,-0.0652479,1.04697,2187.82,2021.96</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303031269/0303031269_74_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6865</height>
+      <id type="integer">71959283</id>
+      <image-height type="integer">6865</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8305</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959283</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303031269/Gabra5_74_0303031269_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">74</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8305</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681171</id>
+        <tvs>0.950847,-0.0681845,0.0681845,0.950847,-1782.03,-2048.54</tvs>
+        <tsv>1.04631,0.0750303,-0.0750303,1.04631,2018.26,2009.71</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303031269/0303031269_82_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6705</height>
+      <id type="integer">71959285</id>
+      <image-height type="integer">6705</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8961</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959285</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303031269/Gabra5_82_0303031269_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">82</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8961</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681173</id>
+        <tvs>0.950413,-0.0739873,0.0739873,0.950413,-1155.73,-2205.85</tvs>
+        <tsv>1.04584,0.0814157,-0.0814157,1.04584,1388.29,2212.86</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303031269/0303031269_90_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6705</height>
+      <id type="integer">71959287</id>
+      <image-height type="integer">6705</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9121</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959287</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303031269/Gabra5_90_0303031269_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">90</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9121</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681175</id>
+        <tvs>0.950841,-0.0682659,0.0682659,0.950841,-1078.98,-2141.13</tvs>
+        <tsv>1.04631,0.0751198,-0.0751198,1.04631,1289.79,2159.23</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303041146/0303041146_106_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6721</height>
+      <id type="integer">71959293</id>
+      <image-height type="integer">6721</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8721</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959293</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303041146/Gabra5_106_0303041146_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">106</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8721</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681177</id>
+        <tvs>0.950733,-0.0697599,0.0697599,0.950733,-1497.81,-2003.5</tvs>
+        <tsv>1.04619,0.0767638,-0.0767638,1.04619,1720.78,1981.06</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303041146/0303041146_114_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6385</height>
+      <id type="integer">71959295</id>
+      <image-height type="integer">6385</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9457</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959295</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303041146/Gabra5_114_0303041146_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">114</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9457</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681179</id>
+        <tvs>0.950478,-0.0731485,0.0731485,0.950478,-965.794,-2591.32</tvs>
+        <tsv>1.04591,0.0804927,-0.0804927,1.04591,1218.71,2632.54</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303041146/0303041146_122_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6369</height>
+      <id type="integer">71959297</id>
+      <image-height type="integer">6369</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9185</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959297</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303041146/Gabra5_122_0303041146_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">122</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9185</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681181</id>
+        <tvs>0.950939,-0.0668908,0.0668908,0.950939,-1093.01,-2475.75</tvs>
+        <tsv>1.04641,0.0736067,-0.0736067,1.04641,1325.98,2510.2</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303051183/0303051183_130_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6849</height>
+      <id type="integer">71959301</id>
+      <image-height type="integer">6849</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7393</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959301</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303051183/Gabra5_130_0303051183_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">130</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7393</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681183</id>
+        <tvs>0.951859,-0.0521943,0.0521943,0.951859,-1789.66,-1715.43</tvs>
+        <tsv>1.04743,0.0574347,-0.0574347,1.04743,1973.07,1693.99</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303051183/0303051183_138_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6705</height>
+      <id type="integer">71959303</id>
+      <image-height type="integer">6705</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8721</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959303</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303051183/Gabra5_138_0303051183_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">138</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8721</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681185</id>
+        <tvs>0.949579,-0.0840241,0.0840241,0.949579,-1316.15,-2237.29</tvs>
+        <tsv>1.04492,0.0924602,-0.0924602,1.04492,1582.12,2216.09</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303051183/0303051183_146_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6721</height>
+      <id type="integer">71959305</id>
+      <image-height type="integer">6721</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8881</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959305</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303051183/Gabra5_146_0303051183_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">146</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8881</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681187</id>
+        <tvs>0.947946,-0.100791,0.100791,0.947946,-893.348,-2129.71</tvs>
+        <tsv>1.04312,0.11091,-0.11091,1.04312,1168.08,2122.46</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303051183/0303051183_154_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6961</height>
+      <id type="integer">71959307</id>
+      <image-height type="integer">6961</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9313</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959307</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303051183/Gabra5_154_0303051183_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">154</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9313</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681189</id>
+        <tvs>0.946969,-0.109583,0.109583,0.946969,-689.14,-2132.62</tvs>
+        <tsv>1.04205,0.120585,-0.120585,1.04205,975.279,2139.19</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303061269/0303061269_170_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6721</height>
+      <id type="integer">71959313</id>
+      <image-height type="integer">6721</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10145</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959313</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303061269/Gabra5_170_0303061269_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">170</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10145</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681191</id>
+        <tvs>0.950412,-0.0740014,0.0740014,0.950412,-609.855,-1778.73</tvs>
+        <tsv>1.04583,0.0814312,-0.0814312,1.04583,782.652,1810.6</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303061269/0303061269_178_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6721</height>
+      <id type="integer">71959315</id>
+      <image-height type="integer">6721</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10017</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959315</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303061269/Gabra5_178_0303061269_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">178</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10017</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681193</id>
+        <tvs>0.947391,-0.105881,0.105881,0.947391,-449.38,-1816.94</tvs>
+        <tsv>1.04251,0.116512,-0.116512,1.04251,680.178,1841.82</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303061269/0303061269_186_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6849</height>
+      <id type="integer">71959317</id>
+      <image-height type="integer">6849</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10145</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959317</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303061269/Gabra5_186_0303061269_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">186</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10145</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681195</id>
+        <tvs>0.949563,-0.0842027,0.0842027,0.949563,-381.781,-1712.65</tvs>
+        <tsv>1.0449,0.0926568,-0.0926568,1.0449,557.611,1754.17</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303071111/0303071111_194_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6961</height>
+      <id type="integer">71959321</id>
+      <image-height type="integer">6961</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10593</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959321</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303071111/Gabra5_194_0303071111_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">194</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10593</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681197</id>
+        <tvs>0.949253,-0.0876255,0.0876255,0.949253,-394.375,-1729.67</tvs>
+        <tsv>1.04456,0.0964231,-0.0964231,1.04456,578.728,1768.72</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303071111/0303071111_202_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7121</height>
+      <id type="integer">71959323</id>
+      <image-height type="integer">7121</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10561</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959323</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303071111/Gabra5_202_0303071111_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">202</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10561</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681199</id>
+        <tvs>0.947318,-0.106528,0.106528,0.947318,-362.984,-1652.03</tvs>
+        <tsv>1.04243,0.117223,-0.117223,1.04243,572.041,1679.57</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303071111/0303071111_210_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6577</height>
+      <id type="integer">71959325</id>
+      <image-height type="integer">6577</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10721</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959325</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303071111/Gabra5_210_0303071111_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">210</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10721</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681201</id>
+        <tvs>0.951203,-0.0630297,0.0630297,0.951203,-426.459,-1835.63</tvs>
+        <tsv>1.0467,0.069358,-0.069358,1.0467,573.693,1891.79</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303071111/0303071111_218_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6513</height>
+      <id type="integer">71959327</id>
+      <image-height type="integer">6513</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10721</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959327</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303071111/Gabra5_218_0303071111_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">218</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10721</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681203</id>
+        <tvs>0.948608,-0.0943492,0.0943492,0.948608,-280.493,-1782.1</tvs>
+        <tsv>1.04385,0.103822,-0.103822,1.04385,477.814,1831.12</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303081196/0303081196_226_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7585</height>
+      <id type="integer">71959331</id>
+      <image-height type="integer">7585</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10769</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959331</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303081196/Gabra5_226_0303081196_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">226</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10769</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681205</id>
+        <tvs>0.946369,-0.114654,0.114654,0.946369,-172.464,-1591.16</tvs>
+        <tsv>1.04139,0.126165,-0.126165,1.04139,380.35,1635.25</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303081196/0303081196_234_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6705</height>
+      <id type="integer">71959333</id>
+      <image-height type="integer">6705</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10657</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959333</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303081196/Gabra5_234_0303081196_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">234</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10657</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681207</id>
+        <tvs>0.947543,-0.104507,0.104507,0.947543,-279.374,-2119.45</tvs>
+        <tsv>1.04268,0.115,-0.115,1.04268,535.034,2177.77</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303081196/0303081196_242_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7313</height>
+      <id type="integer">71959335</id>
+      <image-height type="integer">7313</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10177</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959335</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303081196/Gabra5_242_0303081196_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">242</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10177</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681209</id>
+        <tvs>0.948248,-0.0979045,0.0979045,0.948248,-393.234,-1725.26</tvs>
+        <tsv>1.04345,0.107734,-0.107734,1.04345,596.191,1757.87</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303081196/0303081196_250_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7665</height>
+      <id type="integer">71959337</id>
+      <image-height type="integer">7665</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10145</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959337</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303081196/Gabra5_250_0303081196_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">250</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10145</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681211</id>
+        <tvs>0.949987,-0.0792751,0.0792751,0.949987,-493.062,-1416.77</tvs>
+        <tsv>1.04537,0.0872344,-0.0872344,1.04537,639.022,1438.03</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303091047/0303091047_266_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7425</height>
+      <id type="integer">71959343</id>
+      <image-height type="integer">7425</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10049</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959343</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303091047/Gabra5_266_0303091047_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">266</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10049</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681213</id>
+        <tvs>0.946291,-0.115297,0.115297,0.946291,-275.228,-1717.86</tvs>
+        <tsv>1.0413,0.126873,-0.126873,1.0413,504.545,1753.89</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303091047/0303091047_274_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7393</height>
+      <id type="integer">71959345</id>
+      <image-height type="integer">7393</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10401</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959345</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303091047/Gabra5_274_0303091047_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">274</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10401</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681215</id>
+        <tvs>0.947611,-0.103888,0.103888,0.947611,-367.618,-1634.01</tvs>
+        <tsv>1.04275,0.114319,-0.114319,1.04275,570.132,1661.84</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303091047/0303091047_282_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7345</height>
+      <id type="integer">71959347</id>
+      <image-height type="integer">7345</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10305</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959347</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303091047/Gabra5_282_0303091047_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">282</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10305</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681217</id>
+        <tvs>0.94897,-0.0906387,0.0906387,0.94897,-539.114,-1691.52</tvs>
+        <tsv>1.04425,0.0997389,-0.0997389,1.04425,731.679,1712.59</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303101107/0303101107_290_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6705</height>
+      <id type="integer">71959351</id>
+      <image-height type="integer">6705</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">10289</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959351</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303101107/Gabra5_290_0303101107_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">290</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">10289</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681219</id>
+        <tvs>0.950516,-0.0726544,0.0726544,0.950516,-600.119,-2104.76</tvs>
+        <tsv>1.04595,0.079949,-0.079949,1.04595,795.967,2153.49</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303101107/0303101107_298_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7361</height>
+      <id type="integer">71959353</id>
+      <image-height type="integer">7361</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9745</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959353</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303101107/Gabra5_298_0303101107_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">298</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9745</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681221</id>
+        <tvs>0.948577,-0.0946619,0.0946619,0.948577,-555.793,-1674.81</tvs>
+        <tsv>1.04382,0.104166,-0.104166,1.04382,754.604,1690.3</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303101107/0303101107_306_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7457</height>
+      <id type="integer">71959355</id>
+      <image-height type="integer">7457</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9793</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959355</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303101107/Gabra5_306_0303101107_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">306</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9793</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681223</id>
+        <tvs>0.949412,-0.0858885,0.0858885,0.949412,-597.062,-1718.26</tvs>
+        <tsv>1.04473,0.0945117,-0.0945117,1.04473,786.167,1738.7</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303101107/0303101107_314_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7345</height>
+      <id type="integer">71959357</id>
+      <image-height type="integer">7345</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9681</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959357</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303101107/Gabra5_314_0303101107_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">314</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9681</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681225</id>
+        <tvs>0.94998,-0.0793558,0.0793558,0.94998,-718.624,-1648.01</tvs>
+        <tsv>1.04536,0.0873232,-0.0873232,1.04536,895.129,1660.0</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303111275/0303111275_322_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7073</height>
+      <id type="integer">71959361</id>
+      <image-height type="integer">7073</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9969</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959361</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303111275/Gabra5_322_0303111275_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">322</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9969</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681227</id>
+        <tvs>0.951609,-0.0565735,0.0565735,0.951609,-814.757,-1681.63</tvs>
+        <tsv>1.04715,0.0622536,-0.0622536,1.04715,957.861,1710.2</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303111275/0303111275_330_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7169</height>
+      <id type="integer">71959363</id>
+      <image-height type="integer">7169</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9777</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959363</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303111275/Gabra5_330_0303111275_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">330</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9777</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681229</id>
+        <tvs>0.950776,-0.0691705,0.0691705,0.950776,-881.601,-1796.35</tvs>
+        <tsv>1.04623,0.0761153,-0.0761153,1.04623,1059.09,1812.3</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303111275/0303111275_338_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7121</height>
+      <id type="integer">71959365</id>
+      <image-height type="integer">7121</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">9697</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959365</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303111275/Gabra5_338_0303111275_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">338</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">9697</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681231</id>
+        <tvs>0.950977,-0.0663446,0.0663446,0.950977,-971.185,-1894.47</tvs>
+        <tsv>1.04646,0.0730056,-0.0730056,1.04646,1154.61,1911.58</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303121155/0303121155_354_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7665</height>
+      <id type="integer">71959371</id>
+      <image-height type="integer">7665</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8801</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959371</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303121155/Gabra5_354_0303121155_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">354</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8801</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681233</id>
+        <tvs>0.949952,-0.0796938,0.0796938,0.949952,-1553.96,-1655.72</tvs>
+        <tsv>1.04533,0.0876951,-0.0876951,1.04533,1769.59,1594.5</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303121155/0303121155_362_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6705</height>
+      <id type="integer">71959373</id>
+      <image-height type="integer">6705</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8801</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959373</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303121155/Gabra5_362_0303121155_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">362</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8801</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681235</id>
+        <tvs>0.950101,-0.0778966,0.0778966,0.950101,-1429.2,-2414.7</tvs>
+        <tsv>1.04549,0.0857175,-0.0857175,1.04549,1701.2,2402.04</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303121155/0303121155_370_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6593</height>
+      <id type="integer">71959375</id>
+      <image-height type="integer">6593</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8721</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959375</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303121155/Gabra5_370_0303121155_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">370</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8721</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681237</id>
+        <tvs>0.949923,-0.0800371,0.0800371,0.949923,-1439.28,-2244.27</tvs>
+        <tsv>1.0453,0.0880729,-0.0880729,1.0453,1702.14,2219.17</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303121155/0303121155_378_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6641</height>
+      <id type="integer">71959377</id>
+      <image-height type="integer">6641</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8369</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959377</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303121155/Gabra5_378_0303121155_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">378</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">8369</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681239</id>
+        <tvs>0.950773,-0.0692077,0.0692077,0.950773,-1712.62,-2328.14</tvs>
+        <tsv>1.04623,0.0761562,-0.0761562,1.04623,1969.1,2305.35</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303131009/0303131009_386_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7665</height>
+      <id type="integer">71959381</id>
+      <image-height type="integer">7665</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">16817</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959381</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303131009/Gabra5_386_0303131009_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">386</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">8</tier-count>
+      <width type="integer">16817</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681241</id>
+        <tvs>0.950803,-0.0687944,0.0687944,0.950803,1687.04,-1989.65</tvs>
+        <tsv>1.04626,0.0757015,-0.0757015,1.04626,-1614.47,2209.41</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303131009/0303131009_394_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6273</height>
+      <id type="integer">71959383</id>
+      <image-height type="integer">6273</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">8129</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959383</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303131009/Gabra5_394_0303131009_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">394</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">8129</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681243</id>
+        <tvs>0.948026,-0.100032,0.100032,0.948026,-1571.96,-2478.09</tvs>
+        <tsv>1.04321,0.110075,-0.110075,1.04321,1912.65,2412.13</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303131009/0303131009_402_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5761</height>
+      <id type="integer">71959385</id>
+      <image-height type="integer">5761</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7713</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959385</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303131009/Gabra5_402_0303131009_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">402</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7713</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681245</id>
+        <tvs>0.949713,-0.0824869,0.0824869,0.949713,-1846.62,-2709.65</tvs>
+        <tsv>1.04507,0.0907687,-0.0907687,1.04507,2175.79,2664.15</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303131009/0303131009_410_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5777</height>
+      <id type="integer">71959387</id>
+      <image-height type="integer">5777</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7793</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959387</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303131009/Gabra5_410_0303131009_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">410</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7793</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681247</id>
+        <tvs>0.950819,-0.0685715,0.0685715,0.950819,-1874.77,-2355.52</tvs>
+        <tsv>1.04628,0.0754562,-0.0754562,1.04628,2139.27,2323.07</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303141258/0303141258_426_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5425</height>
+      <id type="integer">71959393</id>
+      <image-height type="integer">5425</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7009</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959393</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303141258/Gabra5_426_0303141258_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">426</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7009</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681249</id>
+        <tvs>0.950915,-0.0672263,0.0672263,0.950915,-2092.68,-2463.66</tvs>
+        <tsv>1.04639,0.0739759,-0.0739759,1.04639,2372.01,2423.14</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303141258/0303141258_434_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">5633</height>
+      <id type="integer">71959395</id>
+      <image-height type="integer">5633</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">7281</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959395</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303141258/Gabra5_434_0303141258_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">434</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">7281</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681251</id>
+        <tvs>0.950801,-0.0688264,0.0688264,0.950801,-2321.46,-2522.32</tvs>
+        <tsv>1.04626,0.0757366,-0.0757366,1.04626,2619.89,2463.19</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303141258/0303141258_442_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">6161</height>
+      <id type="integer">71959397</id>
+      <image-height type="integer">6161</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">6049</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959397</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303141258/Gabra5_442_0303141258_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">442</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">6049</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681253</id>
+        <tvs>0.951307,-0.0614334,0.0614334,0.951307,-3085.18,-1842.98</tvs>
+        <tsv>1.04682,0.0676014,-0.0676014,1.04682,3354.21,1720.7</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303151266/0303151266_450_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">7249</height>
+      <id type="integer">71959401</id>
+      <image-height type="integer">7249</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">11921</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959401</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303151266/Gabra5_450_0303151266_A.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">450</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">7</tier-count>
+      <width type="integer">11921</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681255</id>
+        <tvs>0.950586,-0.0717373,0.0717373,0.950586,-2716.93,-2721.76</tvs>
+        <tsv>1.04603,0.0789398,-0.0789398,1.04603,3056.83,2632.56</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303151266/0303151266_458_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">4817</height>
+      <id type="integer">71959403</id>
+      <image-height type="integer">4817</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">5809</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959403</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303151266/Gabra5_458_0303151266_B.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">458</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">5809</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681257</id>
+        <tvs>0.950794,-0.0689168,0.0689168,0.950794,-2868.22,-3069.45</tvs>
+        <tsv>1.04626,0.0758361,-0.0758361,1.04626,3233.66,2993.91</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303151266/0303151266_466_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">4497</height>
+      <id type="integer">71959405</id>
+      <image-height type="integer">4497</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">4881</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959405</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303151266/Gabra5_466_0303151266_C.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">466</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">4881</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681259</id>
+        <tvs>0.950672,-0.0705892,0.0705892,0.950672,-3236.51,-3552.64</tvs>
+        <tsv>1.04612,0.0776764,-0.0776764,1.04612,3661.74,3465.09</tsv>
+      </alignment2d>
+    </section-image>
+    <section-image>
+      <annotated type="boolean">false</annotated>
+      <axes nil="true"/>
+      <bits-per-component type="integer">8</bits-per-component>
+      <data-set-id type="integer">72077453</data-set-id>
+      <expression type="boolean" nil="true"/>
+      <expression-path>/external/aibssan/production32/prod211/0303151266/0303151266_474_expression.aff</expression-path>
+      <failed type="boolean">false</failed>
+      <height type="integer">3841</height>
+      <id type="integer">71959407</id>
+      <image-height type="integer">3841</image-height>
+      <image-type>Primary</image-type>
+      <image-width type="integer">4417</image-width>
+      <isi-experiment-id type="integer" nil="true"/>
+      <lims1-id type="integer">71959407</lims1-id>
+      <number-of-components type="integer">3</number-of-components>
+      <ophys-experiment-id type="integer" nil="true"/>
+      <path>/external/aibssan/production10/Gabra5_05-2927_23632/zoomify/primary/0303151266/Gabra5_474_0303151266_D.aff</path>
+      <projection-function nil="true"/>
+      <resolution type="float">1.049</resolution>
+      <section-number type="integer">474</section-number>
+      <specimen-id type="integer" nil="true"/>
+      <structure-id type="integer" nil="true"/>
+      <tier-count type="integer">6</tier-count>
+      <width type="integer">4417</width>
+      <x type="integer">0</x>
+      <y type="integer">0</y>
+      <alignment2d>
+        <id type="integer">342681261</id>
+        <tvs>0.950916,-0.0672258,0.0672258,0.950916,-3755.89,-3271.48</tvs>
+        <tsv>1.04639,0.0739753,-0.0739753,1.04639,4172.12,3145.4</tsv>
+      </alignment2d>
+    </section-image>
+  </section-images>
+  <plane_of_section/>
+  <age>P56</age>
+</section-data-set>
