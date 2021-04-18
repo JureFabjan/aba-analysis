@@ -74,7 +74,7 @@ class WebInterface:
         ]),
     ])
 
-    # from: https://community.plotly.com/t/allowing-users-to-download-csv-on-click/5550/42
+    # from: download https://community.plotly.com/t/allowing-users-to-download-csv-on-click/5550/42
     @self.app.callback(Output({'type': 'download', 'view': MATCH}, "data"), Input({'type': 'download-button', 'view': MATCH}, "n_clicks"))
     def downloadCallback(n_clicks):
       if not n_clicks is None:
@@ -220,7 +220,7 @@ class WebInterface:
     ))
 
   # TODO: enforce same scaling for both sides to make the visual data comparable
-  def coexpressions(self, aggregation_function, structure_level, species, gene1, gene2, side):
+  def coexpressions(self, aggregation_function, structure_level, species, gene1, gene2, side): # hemisphere,
     structure_level = f"level_{structure_level}"
     sizeBy = f"shared_{aggregation_function}"
 
@@ -251,7 +251,7 @@ class WebInterface:
 
     return fig
 
-  def stackedBarsBySpecies(self, aggregation_function, structure_level, species, gene, side):
+  def stackedBarsBySpecies(self, aggregation_function, structure_level, species, gene, side): # hemisphere, 
     result = Comparison.species_map[species](gene).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
 
     return heatmap(Comparison.by_region(
