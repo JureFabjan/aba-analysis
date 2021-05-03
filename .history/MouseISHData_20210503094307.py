@@ -9,42 +9,19 @@ import numpy as np
 import pandas as pd
 import glob
 
-import concurrent
-import concurrent.futures
-
 import Utils
 import Constants
 from StructureMap import StructureMap
 
 class MouseISHData:
-  VALUE_COLUMNS = [Constants.EXPR_LVL, Constants.Z_SCORE] 
-
-  currentGets = {}
+  VALUE_COLUMNS = ['expression_level', Constants.GLOB_Z] 
 
   def __init__(self, geneAcronym):
     self.geneAcronym = geneAcronym
     self.cache_path = Constants.DATAFRAME_CACHE + f'mouse\\{geneAcronym}\\'
 
-  def get(self, from_cache, aggregations):
-  
-    if from_cache:
-      return self.getAsync(from_cache, aggregations)
-
-    if self.geneAcronym in MouseISHData.currentGets:
-      print(f'Waiting for initial request of human gene {self.geneAcronym} to complete...')
-      done, not_done = concurrent.futures.wait([MouseISHData.currentGets[self.geneAcronym]], 
-       return_when=concurrent.futures.FIRST_COMPLETED) # this wants an array... ok
-      
-      for fut in done:
-        print(fut, fut.exception())
-        return fut.result() 
-
-    else: 
-      with concurrent.futures.ThreadPoolExecutor() as executor:
-        MouseISHData.currentGets[self.geneAcronym] = executor.submit(self.getAsync, from_cache, aggregations)
-        return MouseISHData.currentGets[self.geneAcronym].result()
-
-  def getAsync(self, from_cache, aggregations): 
+  def get(self, from_cache, aggregations): 
+    #print('MouseISHData.get() start')
     # load data once with from_cache = False, then change it to True to read it from disk instead of fetching it from the api
     if not from_cache:
       # we use the RmaApi to query specific information, such as the section data sets of a specific gene
@@ -80,10 +57,19 @@ class MouseISHData:
       # for Mouse P56, structure_graph_id = 1 according to http://help.brain-map.org/display/api/Atlas+Drawings+and+Ontologies
       structure_map, tree, annotation,  = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution=25).get(structure_graph_id=1) # , annotation, meta 
       # from http://alleninstitute.github.io/AllenSDK/_static/examples/nb/reference_space.html#Downloading-an-annotation-volume
+      #rsp = ReferenceSpace(tree, annotation, [200, 200, 200])
 
       for index, row in sectionDataSets.iterrows(): # https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
           exp_id = row['id']
           exp_path = f"cache\\mouse_ish-expr\\{exp_id}\\"
+
+          # https://allensdk.readthedocs.io/en/latest/_static/examples/nb/reference_space.html#Constructing-a-structure-tree
+          # TODO: this should allow us to circumvent having pre-packaged grid-annotations.
+          # annotation, meta = rspc.get_annotation_volume()
+
+          #refSp = ReferenceSpaceApi()
+          #anns = refSp.download_mouse_atlas_volume(age=15, volume_type=GridDataApi.ENERGY, file_name=f'cache\\mouse_atlas_volume.zip')
+          # http://help.brain-map.org/display/mousebrain/API
           
           try:
               # https://community.brain-map.org/t/whole-mouse-brain-gene-expression-data/447/4
@@ -99,15 +85,15 @@ class MouseISHData:
               # According to the doc @ http://help.brain-map.org/display/api/Downloading+3-D+Expression+Grid+Data
               # we have "A raw uncompressed float (32-bit) little-endian volume representing average expression energy per voxel. 
               # A value of "-1" represents no data. This file is returned by default if the volumes parameter is null."
-              data = pd.DataFrame({Constants.EXPR_LVL: expression_levels, "structure_id": annotations})
+              data = pd.DataFrame({"expression_level": expression_levels, "structure_id": annotations})
 
               # some expression_levels are assigned to a structure of id 0. same is true for Jure's approach.
               # according to the Allen institue, this is just due to background-noise: 
               # https://community.brain-map.org/t/how-to-acquire-the-structure-label-for-the-expression-grid-data/150/4
               # values of -1 mean "no value obtained", hence we filter them out:
-              data = data[(data[Constants.EXPR_LVL] != -1) & (data.structure_id != 0)]
+              data = data[(data.expression_level != -1) & (data.structure_id != 0)]
 
-              data[Constants.Z_SCORE] = Utils.z_score(data[Constants.EXPR_LVL])
+              data["z-score"] = Utils.z_score(data.expression_level)
 
               # https://stackoverflow.com/questions/31528819/using-merge-on-a-column-and-index-in-pandas
               # https://stackoverflow.com/questions/45147100/pandas-drop-columns-with-all-nans                
@@ -117,15 +103,18 @@ class MouseISHData:
 
               Utils.save(data, self.cache_path, name + '.pkl')
 
-              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data
+              # TODO: i would love to provide more detailed spacial information, but the grid-annotations only provide 
+              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data #.append(Utils.simple({ 'data': data, 'name': name }))
           except Exception as e:
               print(f"Error retrieving mouse-ish experiment {exp_id}: {str(e)}")
-              raise e
-
+      
+      #print('MouseISHData.get() done')
       return experiments
     else:
       if not glob.glob(self.cache_path):
         Utils.log.warning(f"No cached dataframe found. Check whether you have access to file '{self.cache_path}' and whether it exists. Obtaining data without caching now...")
         return self.get(False, aggregations)
       
-      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }          
+      #print('MouseISHData.get() done')
+      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }
+          

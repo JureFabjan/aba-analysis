@@ -9,9 +9,6 @@ import numpy as np
 import pandas as pd
 import glob
 
-import concurrent
-import concurrent.futures
-
 import Utils
 import Constants
 from StructureMap import StructureMap
@@ -45,6 +42,7 @@ class MouseISHData:
         return MouseISHData.currentGets[self.geneAcronym].result()
 
   def getAsync(self, from_cache, aggregations): 
+    #print('MouseISHData.get() start')
     # load data once with from_cache = False, then change it to True to read it from disk instead of fetching it from the api
     if not from_cache:
       # we use the RmaApi to query specific information, such as the section data sets of a specific gene
@@ -80,10 +78,19 @@ class MouseISHData:
       # for Mouse P56, structure_graph_id = 1 according to http://help.brain-map.org/display/api/Atlas+Drawings+and+Ontologies
       structure_map, tree, annotation,  = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution=25).get(structure_graph_id=1) # , annotation, meta 
       # from http://alleninstitute.github.io/AllenSDK/_static/examples/nb/reference_space.html#Downloading-an-annotation-volume
+      #rsp = ReferenceSpace(tree, annotation, [200, 200, 200])
 
       for index, row in sectionDataSets.iterrows(): # https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas
           exp_id = row['id']
           exp_path = f"cache\\mouse_ish-expr\\{exp_id}\\"
+
+          # https://allensdk.readthedocs.io/en/latest/_static/examples/nb/reference_space.html#Constructing-a-structure-tree
+          # TODO: this should allow us to circumvent having pre-packaged grid-annotations.
+          # annotation, meta = rspc.get_annotation_volume()
+
+          #refSp = ReferenceSpaceApi()
+          #anns = refSp.download_mouse_atlas_volume(age=15, volume_type=GridDataApi.ENERGY, file_name=f'cache\\mouse_atlas_volume.zip')
+          # http://help.brain-map.org/display/mousebrain/API
           
           try:
               # https://community.brain-map.org/t/whole-mouse-brain-gene-expression-data/447/4
@@ -117,15 +124,18 @@ class MouseISHData:
 
               Utils.save(data, self.cache_path, name + '.pkl')
 
-              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data
+              # TODO: i would love to provide more detailed spacial information, but the grid-annotations only provide 
+              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data #.append(Utils.simple({ 'data': data, 'name': name }))
           except Exception as e:
               print(f"Error retrieving mouse-ish experiment {exp_id}: {str(e)}")
-              raise e
-
+      
+      #print('MouseISHData.get() done')
       return experiments
     else:
       if not glob.glob(self.cache_path):
         Utils.log.warning(f"No cached dataframe found. Check whether you have access to file '{self.cache_path}' and whether it exists. Obtaining data without caching now...")
         return self.get(False, aggregations)
       
-      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }          
+      #print('MouseISHData.get() done')
+      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }
+          

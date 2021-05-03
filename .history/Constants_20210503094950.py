@@ -7,7 +7,7 @@ import numpy as np
 import Utils
 import copy 
 
-Z_SCORE = 'z-score'
+Z_SCORE = 'z_score'
 EXPR_LVL = 'expression_level'
 REGION_ASSIGNMENT = 'mapped region'
 

@@ -7,11 +7,11 @@ import numpy as np
 import Utils
 import copy 
 
-Z_SCORE = 'z-score'
+GLOB_Z = 'z-score'
 EXPR_LVL = 'expression_level'
 REGION_ASSIGNMENT = 'mapped region'
 
-VALUE_COLUMNS = [EXPR_LVL,Z_SCORE] 
+VALUE_COLUMNS = [EXPR_LVL,GLOB_Z] 
 
 DATAFRAME_CACHE = "cache\\data-frames\\"
 

@@ -1,20 +1,18 @@
-
-# used for data-visualisation
 import plotly.graph_objects as go
 import plotly.express as px
 
-# library for providing an interactive web-interface (react-based)
 import dash
 from dash import Dash, no_update
 import dash_bootstrap_components as dbc # used for css
-import dash_core_components as dcc 
-import dash_html_components as html # basic html-components
-from dash.dependencies import Input, Output, MATCH, ALL # used for callback-functions
-from dash_extensions import Download # provide general download-capabilities
-from dash_extensions.snippets import send_data_frame # helps us provide downloadable data-frames
-import dash_pivottable # the component for showing data in a grid
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output, MATCH, ALL
+from dash_extensions import Download
+from dash_extensions.snippets import send_data_frame
+import dash_pivottable
 import dash_table # https://community.plotly.com/t/loading-pandas-dataframe-into-data-table-through-a-callback/19354/14
 
+import pandas as pd
 import webbrowser
 from threading import Timer
 import traceback # used for printing the stacktrace of callback-exceptions
@@ -23,12 +21,11 @@ from HumanMicroarrayData import HumanMicroarrayData
 from MouseISHData import MouseISHData
 
 import Comparison
-from Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, SPECIES, STRUCTURE_LEVELS, Z_SCORE, EXPR_LVL
+from Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, SPECIES, STRUCTURE_LEVELS, Z_SCORE
 
 import json
 import Utils 
 
-# we use some icons from the font-awesome library:
 FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 
 # ! adjust lists declared in Constants.py (such as GENE_LIST) to change the dropdown-list's options.
@@ -44,7 +41,7 @@ class WebInterface:
     self.port = port
 
     self.app.title = "Gene-expression comparison"
-    self.header = 'Z-scores of gene-expression by species & region'
+    self.header = 'Z-score gene-expression by species & region'
     self.credits ="by Christoph Hüsson"
     self.description = [
       "All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. However, for some genes, coronal data is not available for mice.",
@@ -240,8 +237,8 @@ class WebInterface:
 
     # https://plotly.com/python-api-reference/generated/plotly.express.scatter
     fig = px.scatter(Utils.sort_case_insensitive(data, structure_level), 
-          y=f"{Z_SCORE}_{gene1}_{aggregation_function}", 
-          x=f"{Z_SCORE}_{gene2}_{aggregation_function}"
+          y=f"{Constants.EXPR_LVL}_{gene1}_{aggregation_function}", 
+          x=f"{Constants.EXPR_LVL}_{gene2}_{aggregation_function}"
           # TODO: there is some issue with sizes. besides NaN, we got some weird errors...
 	        #,size=sizeBy#, size_max=400 
           ,color=structure_level
@@ -261,7 +258,7 @@ class WebInterface:
 
     return heatmap(Comparison.by_region(
       result.structure, 
-      aggregation_function, Z_SCORE, f'level_{structure_level}', 'structure_name')
+      aggregation_function, Constants.Z_SCORE, f'level_{structure_level}', 'structure_name')
     )
 
   def callbackInputsToKwags(self, input):
@@ -284,8 +281,8 @@ class WebInterface:
 
     result = Comparison.species_map[species](gene).get(from_cache=True, aggregations=AGGREGATION_FUNCTIONS.data)[species]
 
-    value_columns = [(Z_SCORE, agg) for agg in AGGREGATION_FUNCTIONS.data]
-    agg_dict = { (Z_SCORE, agg): AGGREGATION_AGGREGATES[agg] for agg in AGGREGATION_FUNCTIONS.data }
+    value_columns = [(Constants.Z_SCORE, agg) for agg in AGGREGATION_FUNCTIONS.data]
+    agg_dict = { (Constants.Z_SCORE, agg): AGGREGATION_AGGREGATES[agg] for agg in AGGREGATION_FUNCTIONS.data }
     
     # structure_level is provided as a string, because it stems from a dropdown-callback... we need to cast it to int
     result = result.structure.groupby([f'level_{i}' for i in range(0, int(structure_level) + 1)], dropna=True)[value_columns].agg(agg_dict).dropna()

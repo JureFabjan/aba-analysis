@@ -50,13 +50,8 @@ class HumanMicroarrayData:
       # these are provided in the same strucutural manner
       combined.expression_level += probe[Constants.EXPR_LVL]
       combined.z_score += probe[Constants.Z_SCORE] 
-
-      # the z-scores provided here come with some side-notes, according to http://help.brain-map.org/display/humanbrain/API 
       # see: https://community.brain-map.org/t/z-score-for-human-microarray-and-mouse-ish-data/912/3
-      # and: https://community.brain-map.org/t/reproducing-r-score-correlations-in-allen-human-brain-atlas/910/4
-      # key take-away: z-scores are calculated on behalf of the expression-levels per donor. 
-      # for mice, we only have 1 donor per experiment, so we are fine by calculating z-scores for mice ourselves.
-      # for humans, we rely on the values provided by the Allen Institute
+      # https://community.brain-map.org/t/reproducing-r-score-correlations-in-allen-human-brain-atlas/910/4
 
     # https://stackoverflow.com/questions/29325458/dictionary-column-in-pandas-dataframe
     data = pd.DataFrame({Constants.EXPR_LVL: combined.expression_level, Constants.Z_SCORE: combined.z_score},
@@ -74,6 +69,12 @@ class HumanMicroarrayData:
     # note that here, the * is the splat-operator. it is used to unpack the array produced by the list comprehension,
     # in order to provide pd.concat with a plain list of dataframes to concat.
     data = pd.concat([*[unpack_dict_list(combined.samples, attr[0], attr[1]) for attr in attributes], data], axis=1)
+
+    # the z-scores provided here come with some side-notes, according to http://help.brain-map.org/display/humanbrain/API 
+    # "Note: z-score is computed independently for each probe over all donors and samples."
+    # ! But we don't have probes in ISH data for mice, so we would not be able to compare these numbers.
+    # ! To get comparable numbers, we calculate a global z-score.
+    # ! As there is only one donor per brain-region, we can simply use the expression_levels:
 
     # dropna is super slow, so we use this approach instead:
     data = data[data[Constants.EXPR_LVL].notnull() & data[Constants.Z_SCORE].notnull()]

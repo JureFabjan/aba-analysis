@@ -1,20 +1,18 @@
-
-# used for data-visualisation
 import plotly.graph_objects as go
 import plotly.express as px
 
-# library for providing an interactive web-interface (react-based)
 import dash
 from dash import Dash, no_update
 import dash_bootstrap_components as dbc # used for css
-import dash_core_components as dcc 
-import dash_html_components as html # basic html-components
-from dash.dependencies import Input, Output, MATCH, ALL # used for callback-functions
-from dash_extensions import Download # provide general download-capabilities
-from dash_extensions.snippets import send_data_frame # helps us provide downloadable data-frames
-import dash_pivottable # the component for showing data in a grid
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output, MATCH, ALL
+from dash_extensions import Download
+from dash_extensions.snippets import send_data_frame
+import dash_pivottable
 import dash_table # https://community.plotly.com/t/loading-pandas-dataframe-into-data-table-through-a-callback/19354/14
 
+import pandas as pd
 import webbrowser
 from threading import Timer
 import traceback # used for printing the stacktrace of callback-exceptions
@@ -28,7 +26,6 @@ from Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST,
 import json
 import Utils 
 
-# we use some icons from the font-awesome library:
 FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 
 # ! adjust lists declared in Constants.py (such as GENE_LIST) to change the dropdown-list's options.

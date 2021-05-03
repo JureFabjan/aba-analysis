@@ -119,7 +119,7 @@ def byDonor(human, mouse, agg, matchBy = Constants.REGION_ASSIGNMENT):
   # remove verbose structural details and remove glob-z-prefix to improve readability:
   comp = Utils.drop_columns_if(comp)
 
-  # remove Z_SCORE-prefix to also improve readability:
+  # remove glob_z-prefix to also improve readability:
   comp = comp.rename({ **column_mappings(mouse)['human'], **column_mappings(mouse)['mouse']},  axis='columns')
 
   # we isolate the aggregation
@@ -129,13 +129,13 @@ def coexpression(data1, data2, aggregation_function, structure_level, gene1, gen
   
   data = merge_coex(data1.structure, data2.structure, [gene1, gene2], ['structure_name', structure_level]).reset_index().dropna()
 
-  data[f'shared_{aggregation_function}'] = data[(f'{Constants.Z_SCORE}_{gene1}', aggregation_function)] * data[(f'{Constants.Z_SCORE}_{gene2}', aggregation_function)] 
+  data[f'shared_{aggregation_function}'] = data[(f'expression_level_{gene1}', aggregation_function)] * data[(f'expression_level_{gene2}', aggregation_function)] 
 
   return Utils.unstack_columns(data)
 
 def column_mappings(mouse_data):
   
   return { 
-      'human': { Constants.Z_SCORE + '_' + 'human': 'human' }, 
-      'mouse': { Constants.Z_SCORE + '_' + k:k.replace('_', ' ') for k,v in mouse_data.items() }
+      'human': { Constants.GLOB_Z + '_' + 'human': 'human' }, 
+      'mouse': { Constants.GLOB_Z + '_' + k:k.replace('_', ' ') for k,v in mouse_data.items() }
     } 

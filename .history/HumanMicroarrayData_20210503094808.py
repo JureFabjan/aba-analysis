@@ -15,7 +15,7 @@ import Constants
 from StructureMap import StructureMap
 
 class HumanMicroarrayData:
-  VALUE_COLUMNS = [Constants.EXPR_LVL, Constants.Z_SCORE] 
+  VALUE_COLUMNS = [Constants.EXPR_LVL, Constants.GLOB_Z] 
 
   currentGets = {}
   
@@ -36,9 +36,10 @@ class HumanMicroarrayData:
     combined = SimpleNamespace()
 
     setattr(combined, 'samples', []) 
-    setattr(combined, Constants.EXPR_LVL, [])
-    setattr(combined, 'z_score', [])
-    
+    setattr(combined, 'expression_levels', [])
+    setattr(combined, 'z_scores', [])
+    setattr(combined, 'z_scores_recalc', [])
+
     samples = expressionData["samples"] # we hereby prevent a dict-lookup for each probe, because its always the same data used over and over again
 
     for probe in expressionData["probes"]:
@@ -48,18 +49,13 @@ class HumanMicroarrayData:
       combined.samples += samples
 
       # these are provided in the same strucutural manner
-      combined.expression_level += probe[Constants.EXPR_LVL]
-      combined.z_score += probe[Constants.Z_SCORE] 
-
-      # the z-scores provided here come with some side-notes, according to http://help.brain-map.org/display/humanbrain/API 
+      combined.expression_levels += probe["expression_level"]
+      combined.z_scores += probe["z-score"] 
       # see: https://community.brain-map.org/t/z-score-for-human-microarray-and-mouse-ish-data/912/3
-      # and: https://community.brain-map.org/t/reproducing-r-score-correlations-in-allen-human-brain-atlas/910/4
-      # key take-away: z-scores are calculated on behalf of the expression-levels per donor. 
-      # for mice, we only have 1 donor per experiment, so we are fine by calculating z-scores for mice ourselves.
-      # for humans, we rely on the values provided by the Allen Institute
+      # https://community.brain-map.org/t/reproducing-r-score-correlations-in-allen-human-brain-atlas/910/4
 
     # https://stackoverflow.com/questions/29325458/dictionary-column-in-pandas-dataframe
-    data = pd.DataFrame({Constants.EXPR_LVL: combined.expression_level, Constants.Z_SCORE: combined.z_score},
+    data = pd.DataFrame({"expression_level": combined.expression_levels, "z-score": combined.z_scores},
                                 dtype=np.float32) # setting this type is important for later aggregation. else, pandas throws an error for mean & var
 
     # the sample's metadata is stored as dictionary-entries. we unpack them using this function, in order to transform them into columns
@@ -75,8 +71,14 @@ class HumanMicroarrayData:
     # in order to provide pd.concat with a plain list of dataframes to concat.
     data = pd.concat([*[unpack_dict_list(combined.samples, attr[0], attr[1]) for attr in attributes], data], axis=1)
 
+    # the z-scores provided here come with some side-notes, according to http://help.brain-map.org/display/humanbrain/API 
+    # "Note: z-score is computed independently for each probe over all donors and samples."
+    # ! But we don't have probes in ISH data for mice, so we would not be able to compare these numbers.
+    # ! To get comparable numbers, we calculate a global z-score.
+    # ! As there is only one donor per brain-region, we can simply use the expression_levels:
+
     # dropna is super slow, so we use this approach instead:
-    data = data[data[Constants.EXPR_LVL].notnull() & data[Constants.Z_SCORE].notnull()]
+    data = data[data['expression_level'].notnull() & data['z-score'].notnull()]
 
     return data 
   
@@ -92,13 +94,14 @@ class HumanMicroarrayData:
       
       for fut in done:
         print(fut, fut.exception())
-        return fut.result() 
+        return fut.result() #return HumanMicroarrayData.currentGets[self.geneAcronym].result()
 
     else: 
       with concurrent.futures.ThreadPoolExecutor() as executor:
         HumanMicroarrayData.currentGets[self.geneAcronym] = executor.submit(self.getAsync, from_cache, aggregations)
         return HumanMicroarrayData.currentGets[self.geneAcronym].result()
 
+  # TODO: only allow one simultaneous call, e.g. with a dictionary per gene and something like a promise
   #@Utils.profile(sort_by='cumulative', lines_to_print=10, strip_dirs=True)
  
   def getAsync(self, from_cache, aggregations): # load data once with use_cache = True, then change it to False to read it from disk instead of fetching it from the api

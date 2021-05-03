@@ -129,7 +129,7 @@ def coexpression(data1, data2, aggregation_function, structure_level, gene1, gen
   
   data = merge_coex(data1.structure, data2.structure, [gene1, gene2], ['structure_name', structure_level]).reset_index().dropna()
 
-  data[f'shared_{aggregation_function}'] = data[(f'{Constants.Z_SCORE}_{gene1}', aggregation_function)] * data[(f'{Constants.Z_SCORE}_{gene2}', aggregation_function)] 
+  data[f'shared_{aggregation_function}'] = data[(f'{Constants.EXPR_LVL}_{gene1}', aggregation_function)] * data[(f'{Constants.EXPR_LVL}_{gene2}', aggregation_function)] 
 
   return Utils.unstack_columns(data)
 

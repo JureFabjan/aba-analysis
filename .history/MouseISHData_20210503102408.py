@@ -117,7 +117,8 @@ class MouseISHData:
 
               Utils.save(data, self.cache_path, name + '.pkl')
 
-              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data
+              # TODO: i would love to provide more detailed spacial information, but the grid-annotations only provide 
+              experiments['mouse - ' + Constants.PlaneOfSections[row["plane_of_section_id"]]] = data #.append(Utils.simple({ 'data': data, 'name': name }))
           except Exception as e:
               print(f"Error retrieving mouse-ish experiment {exp_id}: {str(e)}")
               raise e
@@ -128,4 +129,6 @@ class MouseISHData:
         Utils.log.warning(f"No cached dataframe found. Check whether you have access to file '{self.cache_path}' and whether it exists. Obtaining data without caching now...")
         return self.get(False, aggregations)
       
-      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }          
+      #print('MouseISHData.get() done')
+      return { 'mouse - ' + Utils.getFilename(file).split('_')[2]: Utils.load(file) for file in glob.glob(f'{self.cache_path}/*.pkl') }
+          
