@@ -12,8 +12,8 @@ import dash_html_components as html # basic html-components
 from dash.dependencies import Input, Output, MATCH, ALL # used for callback-functions
 from dash_extensions import Download # provide general download-capabilities
 from dash_extensions.snippets import send_data_frame # helps us provide downloadable data-frames
-import dash_pivottable # the component for showing data in a grid
-import dash_table # https://community.plotly.com/t/loading-pandas-dataframe-into-data-table-through-a-callback/19354/14
+
+import dash_table # the component for showing data in a grid. also see: https://community.plotly.com/t/loading-pandas-dataframe-into-data-table-through-a-callback/19354/14
 
 import webbrowser
 from threading import Timer
@@ -210,7 +210,13 @@ class WebInterface:
               } for c in data.columns if 'z-score' in c
           ],
           # virtualization=True, cant use it: https://community.plotly.com/t/dash-data-table-with-virtualization-seems-to-break-completely-when-hidden-on-startup/29328
-          style_table={'overflow-x': 'auto'}, #calc(100vh - 120px)
+          # make the datatable acquire all space of its container: https://community.plotly.com/t/dynamic-dash-datatable-height/44061
+          # also see: assets/styles.css
+          style_table={"height": "calc(100vh - 272px)",
+           "width": "calc(100vw - 40px)",
+           "overflow": "auto",
+           "display": "flex",
+           "flex-flow": "column"}, #{'overflow-x': 'auto'}, #calc(100vh - 120px)
           style_data_conditional=[
           {
               'if': {'row_index': 'odd'},

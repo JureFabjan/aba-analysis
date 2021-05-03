@@ -1,0 +1,6 @@
+.dash-table-container .row {
+  margin: 0;
+}
+.dash-spreadsheet.dash-freeze-top, .dash-spreadsheet.dash-virtualized {
+  max-height: unset !important;
+}
