@@ -42,5 +42,5 @@ import Visualisation
 
 webApp = Visualisation.WebInterface(__name__) 
 
-webApp.run_server(debug=False)
+webApp.run_server(debug=True)
 sys.exit()

@@ -39,12 +39,17 @@ FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 
 class WebInterface:
   def __init__(self, name, port = 5000):
+
     # for layout & css, see https://dash.plotly.com/layout
     self.app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX, FONT_AWESOME])
     self.port = port
-
+   
     self.app.title = "Gene-expression comparison"
-    self.header = 'Z-scores of gene-expression by species & region'
+    self.header = [html.Span('Z-scores', id="z_score", style={"textDecoration": "underline", "cursor": "pointer"}), 
+      # we need to use unicode, because html cannot be rendered without circumventing react's html-sanitizer (which is a security-feature)
+      # formatting with line-breaks: https://community.plotly.com/t/dash-bootstrap-components-tooltip-multiple-lines/42285/2
+      dbc.Tooltip(dcc.Markdown("= (\u0078 - \u03bc) / \u03C3\n\nMeasures how many standard-deviations the given value is afar from the population's mean."), target="z_score", style={"font-size": "16px"}), 
+      ' of gene-expression by species & region']
     self.credits ="by Christoph Hüsson"
     self.description = [
       "All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. However, for some genes, coronal data is not available for mice.",
@@ -63,7 +68,7 @@ class WebInterface:
     # https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/
     self.app.layout = html.Div([
         html.H1(self.header, className="pl-4 pt-2"),
-        html.Span(self.credits, className="pl-4 text-muted", style={ 'position': 'relative', 'top': '-18px'}),
+        html.Span(self.credits, className="pl-4 text-muted", style={ 'position': 'absolute', 'top': '0.5rem', 'right': '0.5rem'}),
         html.P(self.description, className="pl-4"),
         # TODO: explain z-score with a tooltip: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/tooltip/ 
         dbc.Tabs([
