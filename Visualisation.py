@@ -150,14 +150,14 @@ class WebInterface:
         except Exception as e:
           # https://stackoverflow.com/questions/4308182/getting-the-exception-value-in-python
           traceback.print_exc()
-          errLeft = repr(e)
+          errLeft = str(e)
 
       if not right_unchanged:
         try:
           retRight = fn(**common, **right, side='right')
         except Exception as e:
           traceback.print_exc()
-          errRight = repr(e)
+          errRight = str(e)
 
       # https://community.plotly.com/t/i-want-to-create-a-conditional-callback-in-dash-is-it-possible/23418/2
       # we are able to prevent an update of one side. however, the loading-indicator will still be shown. 
