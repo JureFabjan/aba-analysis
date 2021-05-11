@@ -4,7 +4,7 @@ from allensdk.api.queries.rma_api import RmaApi
 import pandas as pd
 import numpy as np
 
-import Utils
+from . import Utils
 import copy 
 
 Z_SCORE = 'z-score'
@@ -15,21 +15,21 @@ VALUE_COLUMNS = [EXPR_LVL,Z_SCORE]
 
 DATAFRAME_CACHE = "cache\\data-frames\\"
 
-__GENES = ["Gabra1", "Gabra2", "Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2", "Gabrg3"]
+Genes = ["Gabra1", "Gabra2", "Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2", "Gabrg3"]
 
 # ! here, some magic happens. these lists define - amongst the available options in dropdowns, their labels, and defaults - also some interactions with the charts.
 # ! the type defines the named parameter that is provided to the chart-functions. 
 GENE_LIST = Utils.DropDownListConfiguration(label='Gene', type='gene', 
-  data=__GENES,
+  data=Genes,
   default='Gabra4', defaultLeft='Gabra4', defaultRight='Gabrb3')
 
 # for co-expressions, we need additional gene-selection. this ensure that the type is correctly bound to the expected parameters
 GENE1_LIST = Utils.DropDownListConfiguration(label='Gene', type='gene1', 
-  data=__GENES,
+  data=Genes,
   default='Gabra4', defaultLeft='Gabra4', defaultRight='Gabra4')
 
 GENE2_LIST = Utils.DropDownListConfiguration(label='vs', type='gene2', 
-  data=__GENES,
+  data=Genes,
   default='Gabra4', defaultLeft='Gabra5', defaultRight='Gabra5')
 
 AGGREGATION_FUNCTIONS = Utils.DropDownListConfiguration(label='Aggregation function', type='aggregation_function', 
@@ -67,7 +67,7 @@ PlaneOfSections = {x['id']: x['name'] for x in allenSdkHelper.getPlaneOfSections
 
 __opposing = { 'Human': 'Mouse', 'Mouse': 'Human' }
 
-__regionAssignmentsRaw = pd.read_csv('annotations\\region assignment.csv', header=0)
+__regionAssignmentsRaw = pd.read_csv('region-assignments.csv', header=0)
 __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x: 
     { (x[species].split(';')[0], x[species].split(';')[1]) :
      { 'assignment': (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) ,

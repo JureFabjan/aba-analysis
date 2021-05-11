@@ -12,9 +12,9 @@ import glob
 import concurrent
 import concurrent.futures
 
-import Utils
-import Constants
-from StructureMap import StructureMap
+from . import Utils
+from . import Constants
+from . import StructureMap
 
 class MouseISHData:
   VALUE_COLUMNS = [Constants.EXPR_LVL, Constants.Z_SCORE] 
@@ -74,7 +74,7 @@ class MouseISHData:
       experiments = {}
       
       # http://help.brain-map.org/display/mousebrain/Documentation
-      annotations = np.fromfile("annotations\\P56_Mouse_gridAnnotation\\gridAnnotation.raw", dtype="uint32")
+      annotations = np.fromfile(Utils.getRelativeFilepath("annotations\\P56_Mouse_gridAnnotation\\gridAnnotation.raw"), dtype="uint32")
 
       # https://community.brain-map.org/t/how-to-acquire-the-structure-label-for-the-expression-grid-data/150/4
       # for Mouse P56, structure_graph_id = 1 according to http://help.brain-map.org/display/api/Atlas+Drawings+and+Ontologies

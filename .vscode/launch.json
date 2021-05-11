@@ -5,11 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Aktuelle Datei",
+            "name": "Python: geneEcomparison",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "module": "src.geneEcomparison",
             "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
             "justMyCode": false
         }
     ]

@@ -23,6 +23,20 @@ For extending the code used to retrive microarray-data (human), use the http://a
 
 To force a reload and process data anew, delete one or multiple gene-specific folders in cache\data-frames\mouse or cache\data-frames\human, respectively.
 
+if rna-seq not possible => smoothen correlation of subunits using 3d-gaussian per voxel
+
+load all experiments for mice and humans (=> rows), collect meta-data (sex, age, species, etc. => columns). then: get variance/std by meta-data and brain-region
+meta-data model definition: http://api.brain-map.org/doc/Donor.html
+how do i get a list of all experiments? => http://help.brain-map.org/display/api/Example+Queries+for+Experiment+Metadata
+http://help.brain-map.org/display/api/Allen%2BBrain%2BAtlas%2BAPI
+https://portal.brain-map.org/explore/transcriptome
+https://wiki.mouseimaging.ca/ => https://wiki.mouseimaging.ca/display/MICePub/Mouse+Brain+Atlases
+https://allensdk.readthedocs.io/en/latest/allensdk.api.queries.grid_data_api.html
+https://allensdk.readthedocs.io/en/latest/data_api_client.html
+
+
+groupby poses an issue: donor-information for specific regions might vary => we cant group by donor-columns
+
 Fyi
 http://neuroexpresso.org/
 http://atlas.brain-map.org/atlas?atlas=138322605#atlas=138322605&plate=112360888&structure=13230&x=23424&y=53120&zoom=-7&resolution=124.49&z=3
@@ -50,3 +64,56 @@ According to WholeBrainMicroarray_WhitePaper.pdf:
 For two brains (H0351.2001 and H0351.2002), samples were collected from both hemispheres (cerebral,
 cerebellar and both sides of brainstem). Otherwise, samples for microarray were collected from the left
 cerebral and cerebellar hemispheres and left brainstem.
+
+
+# example for region-assignments.csv:
+Human,Mouse,Name
+"level_3;pons","level_4;Pons","Pons"
+
+
+building and deploying the package:
+! clean the dist/-folder before building. else, twine will later try to upload previous files which is not possible.
+/ see: https://stackoverflow.com/questions/52016336/how-to-upload-new-versions-of-project-to-pypi-with-twine
+py -m build
+/ then:
+py -m twine upload --repository testpypi dist/* --skip-existing
+/ login using your credentials
+
+
+
+https://test.pypi.org/manage/project/geneecomparison/releases/
+
+python -m venv .venv
+
+
+
+pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.15 --extra-index-url https://pypi.org/simple
+
+pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.3
+
+https://hub.gke2.mybinder.org/user/christoph-hue-py-dist-test-gv3vktv6/notebooks/test.ipynb
+
+
+https://stackoverflow.com/questions/16425434/how-to-create-a-python-package-with-multiple-files-without-subpackages
+
+https://mybinder.org/v2/git/https%3A%2F%2Fgithub.com%2Fchristoph-hue%2Fpy-dist-test/HEAD?filepath=test.ipynb
+
+
+
+make sure to define "module": "src.geneEcomparison" in launch.json - else, the package wont be available
+
+
+install package for testing:
+pip install -e .
+
+uninstall package:
+python setup.py develop -u
+
+
+https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time
+
+https://fabiomolinar.com/blog/2019/02/23/debugging-python-packages-vscode/
+
+https://realpython.com/absolute-vs-relative-python-imports/
+
+https://riptutorial.com/python/example/18555/making-package-executable

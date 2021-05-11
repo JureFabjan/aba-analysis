@@ -33,6 +33,9 @@ def getFilename(filepath):
   # https://stackoverflow.com/questions/4444923/get-filename-without-extension-in-python/4444952
   return os.path.splitext(os.path.basename(filepath))[0]
 
+def getRelativeFilepath(path):
+  return os.path.join(os.path.dirname(__file__), path)
+
 def get_sub_columns(df, column):
   return [c[1] for c in df.columns if c[0]==column]
 

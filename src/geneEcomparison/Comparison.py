@@ -26,11 +26,12 @@
 from functools import reduce
 import pandas as pd
 import numpy as np
-from HumanMicroarrayData import HumanMicroarrayData
-from MouseISHData import MouseISHData
 
-import Constants
-import Utils
+from .HumanMicroarrayData import HumanMicroarrayData
+from .MouseISHData import MouseISHData
+
+from . import Constants
+from . import Utils
 
 species_map ={ 'human': HumanMicroarrayData, 'mouse': MouseISHData, 'mouse - coronal': MouseISHData, 'mouse - sagittal': MouseISHData} 
 

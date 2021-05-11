@@ -9,10 +9,10 @@ import glob
 import concurrent
 import concurrent.futures
 
-import Utils
-import Constants
+from . import Utils
+from . import Constants
 
-from StructureMap import StructureMap
+from . import StructureMap
 
 class HumanMicroarrayData:
   VALUE_COLUMNS = [Constants.EXPR_LVL, Constants.Z_SCORE] 

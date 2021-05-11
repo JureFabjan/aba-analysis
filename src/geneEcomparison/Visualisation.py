@@ -19,14 +19,16 @@ import webbrowser
 from threading import Timer
 import traceback # used for printing the stacktrace of callback-exceptions
 
-from HumanMicroarrayData import HumanMicroarrayData
-from MouseISHData import MouseISHData
+from .HumanMicroarrayData import HumanMicroarrayData
+from .MouseISHData import MouseISHData
 
-import Comparison
-from Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, SPECIES, STRUCTURE_LEVELS, Z_SCORE, EXPR_LVL
+from . import Comparison
+from .Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, SPECIES, STRUCTURE_LEVELS, Z_SCORE, EXPR_LVL
+from . import Utils
 
+import sys
 import json
-import Utils 
+
 
 # we use some icons from the font-awesome library:
 FONT_AWESOME = "https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -81,6 +83,11 @@ class WebInterface:
           dbc.Tab(self.gridView(VIEWS.gridView.name, [SPECIES, GENE_LIST, STRUCTURE_LEVELS]), label="Data-grid")
         ]),
     ])
+
+    @self.app.server.route('/shutdown', methods=['GET'])
+    def shutdown():
+      sys.exit();
+      return 'Server shutting down...'
 
     # from: https://community.plotly.com/t/allowing-users-to-download-csv-on-click/5550/42
     @self.app.callback(Output({'type': 'download', 'view': MATCH}, "data"), Input({'type': 'download-button', 'view': MATCH}, "n_clicks"))
@@ -388,5 +395,3 @@ def heatmap(data, title = None, subplots_adjust_parameters = None, xlabel = None
     title=title)
   
   return fig
-
-
