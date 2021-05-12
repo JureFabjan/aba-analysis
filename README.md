@@ -68,8 +68,7 @@ pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.19 --extra-ind
 Be aware that the _extra-index-url_-argument makes sure that all dependencies are requested from the production-environment of pypi, as its test-environment does not provide all necessary packages and should thus not be used. You can omit this parameter when using the production-environment.
 
 ## Usage
-Running this package requires a permanent internet-connection. To start the web-application, use this code-block
-
+Running this package requires a permanent internet-connection. To start the web-application, use this code-block:
 ```python
 from geneEcomparison import App
 # You can provide your own list of genes to be selectable in dropdowns. However, note that there is yet no interface for defining defaults other than the current ones, which are hard-coded.
@@ -94,4 +93,4 @@ Human,Mouse,Name
 ```
 
 ## Shutdown
-You can dispose the flask-server by pressing CTRL+C in the python-console that hosts the web-application. There is currently no interface for shutting it down.
+You can dispose the flask-server by pressing CTRL+C in the Python-console that hosts the web-application. There is currently no interface for shutting it down.
