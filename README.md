@@ -9,11 +9,11 @@ https://visualstudio.microsoft.com/de/visual-cpp-build-tools/
 Make sure to include the optional MSVC package, then restart your computer.
 
 Python 3.6.8 is required. The Python version has to be < 3.7 and > 3.6.4 due to the AllenSDK requiring the tables-library, which has only been precompiled for Python 3.6
-(see: https://stackoverflow.com/questions/53643594/unable-to-install-library-due-to-error-with-hdf5). You can try to build your own whl-file. Otherwise, download and install Python 3.6.8 from here: https://www.python.org/downloads/release/python-368/
+(see: https://stackoverflow.com/questions/53643594/unable-to-install-library-due-to-error-with-hdf5). You can try to build your own whl-file using a newer Python-version. Otherwise, download and install Python 3.6.8 from here: https://www.python.org/downloads/release/python-368/
 
 Create a new virtual environment using this command:
 ```
-python -m venv .venv
+py -m venv .venv
 ```
 
 Once you ensured these prerequisites, install the required packages using the provided requirements.txt:
@@ -27,7 +27,7 @@ If you are debugging with vs code, you might want to use https://pypi.org/projec
 pip install ptvsd
 ```
 As this project is provided as a package, you need to start it as a module instead of a top-level script (check out this blog-post: https://fabiomolinar.com/blog/2019/02/23/debugging-python-packages-vscode/). To do this, define "module": "src.geneEcomparison" in launch.json:
-```
+```json
 "configurations": [
         {
             "name": "Python: geneEcomparison",
@@ -61,15 +61,31 @@ NOTE: The _skip-existing_-flag only makes sure that no error occurs due to any a
 The package is now ready to be installed. To test its installation in a clean environment, I recommend using https://mybinder.org/. Mybinder allows you to use a variety of sources (e.g. a GitHub-repository, as done here) to set up a Python-environment and access it online. This Jupyter-notebook provides the correct environment for gene-e-comparison:
 https://mybinder.org/v2/git/https%3A%2F%2Fgithub.com%2Fchristoph-hue%2Fpy-dist-test/HEAD?filepath=test.ipynb
 
-The main part is testing the installation using pip:
+The main block is intended for testing the installation using pip:
 ```
 pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.19 --extra-index-url https://pypi.org/simple
 ```
 Be aware that the _extra-index-url_-argument makes sure that all dependencies are requested from the production-environment of pypi, as its test-environment does not provide all necessary packages and should thus not be used. You can omit this parameter when using the production-environment.
 
 # Usage
-**Example for region-assignments.csv:**
+Running this package requires a permanent internet-connection. To start the web-application, use this code-block
+
+```python
+from geneEcomparison import App
+# You can provide your own list of genes to be selectable in dropdowns. However, note that there is yet no interface for defining defaults other than the current ones, which are hard-coded.
+# App.setAvailableGenes(["Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2"])
+App.start()
 ```
+
+This will start the flask-server, making the app available on the localhost, port 5000: http://127.0.0.1:5000/
+
+Please note that any (or most of the) requested and processed data will be cached for performance-reasons.
+
+## Region-assignments
+The mapping-file region-assignments.csv assigns diverging structures of different species to a common conceptual structure, which helps making the data comparable. Multiple structures can be mapped to a single concept.
+
+**Example for region-assignments.csv:**
+```csv
 Human,Mouse,Name
 "level_3;pons","level_4;Pons","Pons"
 "level_3;hypothalamus","level_4;Hypothalamus","Hypothalamus"
@@ -77,53 +93,5 @@ Human,Mouse,Name
 "level_4;cerebellar cortex","level_3;Cerebellar cortex","Cerebellar cortex"
 ```
 
-# Clarifications
-
-IMPORTANT:
-A probe is a plane through the brain in order to detect a specific gene. It contains normalized expression levels and the z-score for each element of the samples-array. "The z-score is computed independently for each probe over all donors and samples." Check out http://help.brain-map.org/display/humanbrain/API for more information.
-
-For extending the code used to retrive microarray-data (human), use the http://api.brain-map.org/examples/rma_builder/index.html
-
-To force a reload and process data anew, delete one or multiple gene-specific folders in cache\data-frames\mouse or cache\data-frames\human, respectively.
-
-if rna-seq not possible => smoothen correlation of subunits using 3d-gaussian per voxel
-
-load all experiments for mice and humans (=> rows), collect meta-data (sex, age, species, etc. => columns). then: get variance/std by meta-data and brain-region
-meta-data model definition: http://api.brain-map.org/doc/Donor.html
-how do i get a list of all experiments? => http://help.brain-map.org/display/api/Example+Queries+for+Experiment+Metadata
-http://help.brain-map.org/display/api/Allen%2BBrain%2BAtlas%2BAPI
-https://portal.brain-map.org/explore/transcriptome
-https://wiki.mouseimaging.ca/ => https://wiki.mouseimaging.ca/display/MICePub/Mouse+Brain+Atlases
-https://allensdk.readthedocs.io/en/latest/allensdk.api.queries.grid_data_api.html
-https://allensdk.readthedocs.io/en/latest/data_api_client.html
-
-
-groupby poses an issue: donor-information for specific regions might vary => we cant group by donor-columns
-
-Fyi
-http://neuroexpresso.org/
-http://atlas.brain-map.org/atlas?atlas=138322605#atlas=138322605&plate=112360888&structure=13230&x=23424&y=53120&zoom=-7&resolution=124.49&z=3
-
-https://stackoverflow.com/questions/32639074/why-am-i-getting-importerror-no-module-named-pip-right-after-installing-pip
-
-
-https://dash.plotly.com/installation
-
-https://community.brain-map.org/t/what-is-the-z-score-reference-value-in-rnaseq-gbm-data/513
-http://help.brain-map.org/display/humanbrain/API
-
-
-https://community.brain-map.org/t/transcriptomics-rna-seq-microarray-data-normalization-faq/182
-
-                      probes
-human microarray data [1,2,3.. z-score:  mean:2, var: 1] [1,4,7, z-score: mean: 4, var:3] [ ] ... ]
-ish mouse data        [1,2,3,4,7, z-score: mean:4, var: 2               ]
-
-this video helps to clarify the microarray-approach and explains what a probe actually is: https://www.youtube.com/watch?v=Hv5flUOsE0s
-
-
-
-According to WholeBrainMicroarray_WhitePaper.pdf:
-For two brains (H0351.2001 and H0351.2002), samples were collected from both hemispheres (cerebral,
-cerebellar and both sides of brainstem). Otherwise, samples for microarray were collected from the left
-cerebral and cerebellar hemispheres and left brainstem.
+## Shutdown
+You can dispose the flask-server by pressing CTRL+C in the python-console that hosts the web-application. There is currently no interface for shutting it down.
