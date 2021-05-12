@@ -120,11 +120,11 @@ class HumanMicroarrayData:
               "service::human_microarray_expression[probes$eq$probes]")
       
       data = rma.json_msg_query(url=query)
+     
+      data = self.transformExpressionData(data)
 
       structure_map  = StructureMap.StructureMap(reference_space_key = 'annotation/ccf_2017', resolution = 25).get(structure_graph_id=10) # , annotation, meta 
       
-      data = self.transformExpressionData(data)
-
       # https://stackoverflow.com/questions/19125091/pandas-merge-how-to-avoid-duplicating-columns
       # to avoid automatic renaming the duplicate columns by removing any duplicate-column
       # note that our merge-condition is index vs structure_id. because structure_id is the index of structure_map, 

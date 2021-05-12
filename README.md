@@ -99,3 +99,21 @@ Human,Mouse,Name
 
 ## Shutdown
 You can dispose the flask-server by pressing CTRL+C in the Python-console that hosts the web-application. There is currently no interface for shutting it down.
+
+
+
+
+# TODO:
+copy region-assignments.csv to the user-folder
+fallback: user may define a file explictly when starting the app
+
+open browser immediatelly
+add to doc: install pandas==1.1.5
+
+
+
+# Done
+ [options.package_data]
+annotations
+assets
+

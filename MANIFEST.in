@@ -1,0 +1,2 @@
+recursive-include src/geneEcomparison/annotations *
+recursive-include src/geneEcomparison/assets *
