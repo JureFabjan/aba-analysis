@@ -67,6 +67,11 @@ pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.19 --extra-ind
 ```
 Be aware that the _extra-index-url_-argument makes sure that all dependencies are requested from the production-environment of pypi, as its test-environment does not provide all necessary packages and should thus not be used. You can omit this parameter when using the production-environment.
 
+Deploying in pypi.org's production-environment:
+```
+py -m twine upload --repository pypi dist/* --skip-existing
+```
+
 ## Usage
 Running this package requires a permanent internet-connection. To start the web-application, use this code-block:
 ```python
