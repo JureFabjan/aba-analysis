@@ -61,7 +61,7 @@ NOTE: The _skip-existing_-flag only makes sure that no error occurs due to any a
 The package is now ready to be installed. To test its installation in a clean environment, I recommend using https://mybinder.org/. Mybinder allows you to use a variety of sources (e.g. a GitHub-repository, as done here) to set up a Python-environment and access it online. This Jupyter-notebook provides the correct environment for gene-e-comparison:
 https://mybinder.org/v2/git/https%3A%2F%2Fgithub.com%2Fchristoph-hue%2Fpy-dist-test/HEAD?filepath=test.ipynb
 
-The main block is intended for testing the installation using pip:
+The main block is intended for testing the installation using pip (make sure to change the geneEcomparison-version-number according to your recently deployed package):
 ```
 pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.19 --extra-index-url https://pypi.org/simple
 ```
