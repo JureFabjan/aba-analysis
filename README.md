@@ -16,7 +16,7 @@ Create a new virtual environment using this command:
 py -m venv .venv
 ```
 
-Once you ensured these prerequisites, install the required packages using the provided requirements.txt:
+Once you ensured these prerequisites, install the required packages using the provided *requirements.txt*:
 ```
 pip install -r requirements.txt
 ```
@@ -26,7 +26,7 @@ If you are debugging with vs code, you might want to use https://pypi.org/projec
 ```
 pip install ptvsd
 ```
-As this project is provided as a package, you need to start it as a module instead of a top-level script (check out this blog-post: https://fabiomolinar.com/blog/2019/02/23/debugging-python-packages-vscode/). To do this, define "module": "src.geneEcomparison" in launch.json:
+As this project is provided as a package, you need to start it as a module instead of a top-level script (check out this blog-post: https://fabiomolinar.com/blog/2019/02/23/debugging-python-packages-vscode/). To do this, define "module": "src.geneEcomparison" in your *launch.json*:
 ```json
 "configurations": [
         {
@@ -46,7 +46,7 @@ Else, the package won't be available and the relative imports (https://stackover
 ## Packaging
 Creating a Python-package is quite complicated and requires knowledge of some conventions. Most of these conventions have already been abided in this project for it to be deployed. Please read the python-documentation for some background-information on this topic: https://packaging.python.org/tutorials/packaging-projects/
 
-To deploy the package to pypi.org, you need to build it first. Pypi does not support overwriting existing versions of a package, so make sure to increment the version-/revision-number in setup.cfg accordingly. Then, clean the dist/-folder in order to remove existing builds that would only take time for uploading just to be refused by pypi anyways. Build the package with this command:
+To deploy the package to pypi.org, you need to build it first. Pypi does not support overwriting existing versions of a package, so make sure to increment the version-/revision-number in *setup.cfg* accordingly. Then, clean the dist/-folder in order to remove existing builds that would only take time for uploading just to be refused by pypi anyways. Build the package with this command:
 ```
 py -m build
 ```
@@ -82,7 +82,7 @@ This will start the flask-server, making the app available on the localhost, por
 Please note that any (or most of the) requested and processed data will be cached for performance-reasons.
 
 ### Region-assignments
-The mapping-file region-assignments.csv assigns diverging structures of different species to a common conceptual structure, which helps making the data comparable. Multiple structures can be mapped to a single concept.
+The mapping-file *region-assignments.csv* assigns diverging structures of different species to a common conceptual structure, which helps making the data comparable. Multiple structures can be mapped to a single concept.
 
 **Example for region-assignments.csv:**
 ```csv
