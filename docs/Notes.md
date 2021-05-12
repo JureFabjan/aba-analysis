@@ -1,4 +1,27 @@
 
+
+https://test.pypi.org/manage/project/geneecomparison/releases/
+
+
+
+
+pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.15 --extra-index-url https://pypi.org/simple
+
+pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.3
+
+
+https://stackoverflow.com/questions/16425434/how-to-create-a-python-package-with-multiple-files-without-subpackages
+
+
+
+install package for testing:
+pip install -e .
+
+uninstall package:
+python setup.py develop -u
+
+
+
 https://python-reference.readthedocs.io/en/latest/docs/operators/index.html
 https://github.com/benfulcher/AllenSDK
 http://help.brain-map.org/display/api/Atlas+Drawings+and+Ontologies
