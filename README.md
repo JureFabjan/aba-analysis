@@ -41,7 +41,7 @@ As this project is provided as a package, you need to start it as a module inste
     ]
 ```
 
-Else, the package won't be available and the relative imports (https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time, https://realpython.com/absolute-vs-relative-python-imports/) won't work. You need to run the project from the debugging-tab instead of the green arrow in the toolbar (which only runs the current script-file). The debugger will execute the package (https://riptutorial.com/python/example/18555/making-package-executable) or - to be more precise - the script defined in the package's \_\_main\_\_.py-file.
+Else, the package won't be available and the relative imports (https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time, https://realpython.com/absolute-vs-relative-python-imports/) won't work. You need to run the project from the debugging-tab instead of the green arrow in the toolbar (which only runs the current script-file). The debugger will execute the package (https://riptutorial.com/python/example/18555/making-package-executable) or - to be more precise - the script defined in the package's _\_\_main\_\_.py_-file.
 
 ## Packaging
 Creating a Python-package is quite complicated and requires knowledge of some conventions. Most of these conventions have already been abided in this project for it to be deployed. Please read the python-documentation for some background-information on this topic: https://packaging.python.org/tutorials/packaging-projects/
