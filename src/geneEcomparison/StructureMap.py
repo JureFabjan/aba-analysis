@@ -17,7 +17,7 @@ class StructureMap:
         
         # doc @ http://api.brain-map.org/doc/Structure.html
         tree = rspc.get_structure_tree(structure_graph_id=structure_graph_id) 
-        annotation, meta = rspc.get_annotation_volume()
+        #annotation, meta = rspc.get_annotation_volume()
 
         # https://allensdk.readthedocs.io/en/latest/_static/examples/nb/reference_space.html
         name_map = tree.get_name_map()
@@ -46,4 +46,4 @@ class StructureMap:
         ancestor_map = ancestor_map.ancestors.apply(pd.Series).add_prefix('level_')
         ancestor_map = ancestor_map.where(pd.notnull(ancestor_map), None)
 
-        return structure_map.merge(ancestor_map, left_index=True, right_index=True, how="left").sort_index(), tree, annotation
+        return structure_map.merge(ancestor_map, left_index=True, right_index=True, how="left").sort_index()

@@ -31,12 +31,12 @@ class MouseISHData:
       return self.getAsync(from_cache, aggregations)
 
     if self.geneAcronym in MouseISHData.currentGets:
-      print(f'Waiting for initial request of human gene {self.geneAcronym} to complete...')
+      print(f'Waiting for initial request of mouse gene {self.geneAcronym} to complete...')
       done, not_done = concurrent.futures.wait([MouseISHData.currentGets[self.geneAcronym]], 
        return_when=concurrent.futures.FIRST_COMPLETED) # this wants an array... ok
       
       for fut in done:
-        print(fut, fut.exception())
+        print(fut, 'exception:', fut.exception())
         return fut.result() 
 
     else: 
@@ -78,7 +78,7 @@ class MouseISHData:
 
       # https://community.brain-map.org/t/how-to-acquire-the-structure-label-for-the-expression-grid-data/150/4
       # for Mouse P56, structure_graph_id = 1 according to http://help.brain-map.org/display/api/Atlas+Drawings+and+Ontologies
-      structure_map, tree, annotation,  = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution=25).get(structure_graph_id=1) # , annotation, meta 
+      structure_map = StructureMap.StructureMap(reference_space_key = 'annotation/ccf_2017', resolution=25).get(structure_graph_id=1) # , annotation, meta 
       # from http://alleninstitute.github.io/AllenSDK/_static/examples/nb/reference_space.html#Downloading-an-annotation-volume
 
       for index, row in sectionDataSets.iterrows(): # https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas

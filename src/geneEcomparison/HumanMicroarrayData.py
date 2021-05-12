@@ -91,7 +91,7 @@ class HumanMicroarrayData:
        return_when=concurrent.futures.FIRST_COMPLETED) # this wants an array... ok
       
       for fut in done:
-        print(fut, fut.exception())
+        print(fut, 'exception:', fut.exception())
         return fut.result() 
 
     else: 
@@ -121,7 +121,7 @@ class HumanMicroarrayData:
       
       data = rma.json_msg_query(url=query)
 
-      structure_map, tree, annotation  = StructureMap(reference_space_key = 'annotation/ccf_2017', resolution = 25).get(structure_graph_id=10) # , annotation, meta 
+      structure_map  = StructureMap.StructureMap(reference_space_key = 'annotation/ccf_2017', resolution = 25).get(structure_graph_id=10) # , annotation, meta 
       
       data = self.transformExpressionData(data)
 
