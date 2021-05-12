@@ -67,7 +67,7 @@ pip install -i https://test.pypi.org/simple/ geneEcomparison==0.0.19 --extra-ind
 ```
 Be aware that the _extra-index-url_-argument makes sure that all dependencies are requested from the production-environment of pypi, as its test-environment does not provide all necessary packages and should thus not be used. You can omit this parameter when using the production-environment.
 
-# Usage
+## Usage
 Running this package requires a permanent internet-connection. To start the web-application, use this code-block
 
 ```python
@@ -81,7 +81,7 @@ This will start the flask-server, making the app available on the localhost, por
 
 Please note that any (or most of the) requested and processed data will be cached for performance-reasons.
 
-## Region-assignments
+### Region-assignments
 The mapping-file region-assignments.csv assigns diverging structures of different species to a common conceptual structure, which helps making the data comparable. Multiple structures can be mapped to a single concept.
 
 **Example for region-assignments.csv:**
