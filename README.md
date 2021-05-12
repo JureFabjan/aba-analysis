@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 Note that the AllenSDK unfortunately requires quite an old version of pandas. You might want to upgrade to a newer version of it, once all required packages have been installed.
 
-If you are debugging with vs code, you might want to use https://pypi.org/project/ptvsd/ for much better debugging-performance:
+If you are debugging with VS Code, you might want to use https://pypi.org/project/ptvsd/ for much better debugging-performance:
 ```
 pip install ptvsd
 ```
