@@ -135,7 +135,7 @@ class HumanMicroarrayData:
       
       Utils.save(ret, self.cache_path, 'cache.pkl')
       
-      return { 'human': ret, } 
+      return { 'human': ret } 
 
     else:
       if not glob.glob(self.cache_path):

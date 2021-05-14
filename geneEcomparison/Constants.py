@@ -3,6 +3,9 @@ from allensdk.api.queries.rma_api import RmaApi
 
 import pandas as pd
 import numpy as np
+import glob
+
+import pkg_resources
 
 from . import Utils
 import copy 
@@ -67,7 +70,21 @@ PlaneOfSections = {x['id']: x['name'] for x in allenSdkHelper.getPlaneOfSections
 
 __opposing = { 'Human': 'Mouse', 'Mouse': 'Human' }
 
-__regionAssignmentsRaw = pd.read_csv('region-assignments.csv', header=0)
+userRegionAssignmentsPath = "region-assignments.csv"
+if glob.glob(userRegionAssignmentsPath):
+  print(f'Using file {userRegionAssignmentsPath} found in your working-directory.')
+  __regionAssignmentsRaw = pd.read_csv(userRegionAssignmentsPath, header=0)
+else:  
+  # no file provided by the user. read it from the pkg_resources
+  print(f'No file {userRegionAssignmentsPath} found in your working-directory. Defaulting to shipped assignments.')
+  regionAssignmentsPath = ".\\annotations\\region-assignments.csv"
+  # from https://stackoverflow.com/questions/6028000/how-to-read-a-static-file-from-inside-a-python-package
+  resource_package = 'geneEcomparison'
+  resource_path = '/'.join(('annotations', 'region-assignments.csv'))  # Do not use os.path.join()
+  shippedAssignmentsStream = pkg_resources.resource_stream(resource_package, resource_path)
+  __regionAssignmentsRaw = pd.read_csv(shippedAssignmentsStream, header=0)
+  
+
 __regionAssignments = { species: __regionAssignmentsRaw.apply(lambda x: 
     { (x[species].split(';')[0], x[species].split(';')[1]) :
      { 'assignment': (x[__opposing[species]].split(';')[0], x[__opposing[species]].split(';')[1]) ,

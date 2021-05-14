@@ -20,20 +20,22 @@ Once you ensured these prerequisites, install the required packages using the pr
 ```
 pip install -r requirements.txt
 ```
-Note that the AllenSDK unfortunately requires quite an old version of pandas. You might want to upgrade to a newer version of it, once all required packages have been installed.
-
+Note that the AllenSDK unfortunately requires quite an old version of pandas. After installing the AllenSDK, you need to upgrade pandas to a newer version:
+```
+pip install pandas==1.1.5
+```
 If you are debugging with VS Code, you might want to use https://pypi.org/project/ptvsd/ for much better debugging-performance:
 ```
 pip install ptvsd
 ```
-As this project is provided as a package, you need to start it as a module instead of a top-level script (check out this blog-post: https://fabiomolinar.com/blog/2019/02/23/debugging-python-packages-vscode/). To do this, define "module": "src.geneEcomparison" in your *launch.json*:
+As this project is provided as a package, you need to start it as a module instead of a top-level script (check out this blog-post: https://fabiomolinar.com/blog/2019/02/23/debugging-python-packages-vscode/). To do this, define "module": "geneEcomparison" in your *launch.json*:
 ```json
 "configurations": [
         {
             "name": "Python: geneEcomparison",
             "type": "python",
             "request": "launch",
-            "module": "src.geneEcomparison",
+            "module": "geneEcomparison",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "justMyCode": false
@@ -73,7 +75,13 @@ py -m twine upload --repository pypi dist/* --skip-existing
 ```
 
 ## Usage
-Running this package requires a permanent internet-connection. To start the web-application, use this code-block:
+Running this package requires a permanent internet-connection. 
+IMPORTANT: Note that the AllenSDK unfortunately requires quite an old version of pandas. After installing the AllenSDK, you need to upgrade pandas to a newer version:
+```
+pip install pandas==1.1.5
+```
+
+After upgrading pandas, you can start the web-application using this code-block:
 ```python
 from geneEcomparison import App
 # You can provide your own list of genes to be selectable in dropdowns. However, note that there is yet no interface for defining defaults other than the current ones, which are hard-coded.
@@ -86,7 +94,7 @@ This will start the flask-server, making the app available on the localhost, por
 Please note that any (or most of the) requested and processed data will be cached for performance-reasons.
 
 ### Region-assignments
-The mapping-file *region-assignments.csv* assigns diverging structures of different species to a common conceptual structure, which helps making the data comparable. Multiple structures can be mapped to a single concept.
+The mapping-file *region-assignments.csv* assigns diverging structures of different species to a common conceptual structure, which helps making the data comparable. Multiple structures can be mapped to a single concept. If you do not provide this file in your working directory, a mapping-file shipped with the package is used.
 
 **Example for region-assignments.csv:**
 ```csv
@@ -99,21 +107,3 @@ Human,Mouse,Name
 
 ## Shutdown
 You can dispose the flask-server by pressing CTRL+C in the Python-console that hosts the web-application. There is currently no interface for shutting it down.
-
-
-
-
-# TODO:
-copy region-assignments.csv to the user-folder
-fallback: user may define a file explictly when starting the app
-
-open browser immediatelly
-add to doc: install pandas==1.1.5
-
-
-
-# Done
- [options.package_data]
-annotations
-assets
-
