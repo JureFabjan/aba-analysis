@@ -45,6 +45,12 @@ As this project is provided as a package, you need to start it as a module inste
 
 Else, the package won't be available and the relative imports (https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time, https://realpython.com/absolute-vs-relative-python-imports/) won't work. You need to run the project from the debugging-tab instead of the green arrow in the toolbar (which only runs the current script-file). The debugger will execute the package (https://riptutorial.com/python/example/18555/making-package-executable) or - to be more precise - the script defined in the package's _\_\_main\_\_.py_-file.
 
+## Testing
+Just call tox from the command-line to run the tests:
+```
+tox
+```
+
 ## Packaging
 Creating a Python-package is quite complicated and requires knowledge of some conventions. Most of these conventions have already been abided in this project for it to be deployed. Please read the python-documentation for some background-information on this topic: https://packaging.python.org/tutorials/packaging-projects/
 
@@ -76,17 +82,19 @@ py -m twine upload --repository pypi dist/* --skip-existing
 
 ## Usage
 Running this package requires a permanent internet-connection. 
-IMPORTANT: Note that the AllenSDK unfortunately requires quite an old version of pandas. After installing the AllenSDK, you need to upgrade pandas to a newer version:
+
+**IMPORTANT: Note that the AllenSDK-dependency unfortunately requires quite an old version of pandas. After installing the geneEcomparison-package, you need to upgrade pandas to a newer version:**
 ```
+pip install geneEcomparison
 pip install pandas==1.1.5
 ```
 
-After upgrading pandas, you can start the web-application using this code-block:
+Once the installation has finished, you can start the web-application using this code-block:
 ```python
 from geneEcomparison import App
 # You can provide your own list of genes to be selectable in dropdowns. However, note that there is yet no interface for defining defaults other than the current ones, which are hard-coded.
 # App.setAvailableGenes(["Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2"])
-App.start()
+App.start(port=5000) # default is 5000. provide a port other than that, in case it is already in use
 ```
 
 This will start the flask-server, making the app available on the localhost, port 5000: http://127.0.0.1:5000/
