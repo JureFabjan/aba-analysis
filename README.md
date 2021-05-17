@@ -92,7 +92,7 @@ pip install pandas==1.1.5
 Once the installation has finished, you can start the web-application using this code-block:
 ```python
 from geneEcomparison import App
-# You can provide your own list of genes to be selectable in dropdowns. However, note that there is yet no interface for defining defaults other than the current ones, which are hard-coded.
+# You can provide your own list of genes to be selectable in dropdowns. Then, you also need to define defaults for the dropdowns
 # App.setAvailableGenes(["Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2"], "Gabra5", "Gabrb1", "Gabrb2")
 App.start(port=5000) # default is 5000. provide a port other than that, in case it is already in use
 ```
