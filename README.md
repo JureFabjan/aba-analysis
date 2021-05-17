@@ -93,7 +93,7 @@ Once the installation has finished, you can start the web-application using this
 ```python
 from geneEcomparison import App
 # You can provide your own list of genes to be selectable in dropdowns. However, note that there is yet no interface for defining defaults other than the current ones, which are hard-coded.
-# App.setAvailableGenes(["Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2"])
+# App.setAvailableGenes(["Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2"], "Gabra5", "Gabrb1", "Gabrb2")
 App.start(port=5000) # default is 5000. provide a port other than that, in case it is already in use
 ```
 

@@ -23,7 +23,8 @@ from .HumanMicroarrayData import HumanMicroarrayData
 from .MouseISHData import MouseISHData
 
 from . import Comparison
-from .Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, GENE1_LIST, GENE2_LIST, GENE_LIST, SPECIES, STRUCTURE_LEVELS, Z_SCORE, EXPR_LVL
+from .Constants import AGGREGATION_AGGREGATES, AGGREGATION_FUNCTIONS, SPECIES, STRUCTURE_LEVELS, Z_SCORE
+from . import Constants
 from . import Utils
 
 import sys
@@ -74,13 +75,13 @@ class WebInterface:
         html.P(self.description, className="pl-4"),
         # TODO: explain z-score with a tooltip: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/tooltip/ 
         dbc.Tabs([
-          dbc.Tab(self.sideBySideView(VIEWS.allSpecies.name, [AGGREGATION_FUNCTIONS], [GENE_LIST]),  
+          dbc.Tab(self.sideBySideView(VIEWS.allSpecies.name, [AGGREGATION_FUNCTIONS], [Constants.GENE_LIST]),  
             label="Expression-heatmaps"),
-          dbc.Tab(self.sideBySideView(VIEWS.coexpressions.name, [AGGREGATION_FUNCTIONS], [SPECIES, GENE1_LIST, GENE2_LIST, STRUCTURE_LEVELS]),
+          dbc.Tab(self.sideBySideView(VIEWS.coexpressions.name, [AGGREGATION_FUNCTIONS], [SPECIES, Constants.GENE1_LIST, Constants.GENE2_LIST, STRUCTURE_LEVELS]),
            label="Co-expressions"),
-          dbc.Tab(self.sideBySideView(VIEWS.stackedBarsBySpecies.name, [AGGREGATION_FUNCTIONS], [SPECIES, GENE_LIST, STRUCTURE_LEVELS]), 
+          dbc.Tab(self.sideBySideView(VIEWS.stackedBarsBySpecies.name, [AGGREGATION_FUNCTIONS], [SPECIES, Constants.GENE_LIST, STRUCTURE_LEVELS]), 
            label="Stacked bars"),
-          dbc.Tab(self.gridView(VIEWS.gridView.name, [SPECIES, GENE_LIST, STRUCTURE_LEVELS]), label="Data-grid")
+          dbc.Tab(self.gridView(VIEWS.gridView.name, [SPECIES, Constants.GENE_LIST, STRUCTURE_LEVELS]), label="Data-grid")
         ]),
     ])
 

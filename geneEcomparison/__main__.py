@@ -5,4 +5,5 @@
 if __name__ == "__main__":
     # execute only if run as a script
   from . import App
+  App.setAvailableGenes(["Gabra4", "Gabra5", "Gabrb1", "Gabrb2", "Gabrb3", "Gabrd", "Gabrg2"], "Gabra5", "Gabrb1", "Gabrb2")
   App.start()
