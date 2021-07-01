@@ -9,7 +9,7 @@ from dash import Dash, no_update
 import dash_bootstrap_components as dbc # used for css
 import dash_core_components as dcc 
 import dash_html_components as html # basic html-components
-from dash.dependencies import Input, Output, MATCH, ALL # used for callback-functions
+from dash.dependencies import Input, Output, State, MATCH, ALL # used for callback-functions
 from dash_extensions import Download # provide general download-capabilities
 from dash_extensions.snippets import send_data_frame # helps us provide downloadable data-frames
 
@@ -53,7 +53,7 @@ class WebInterface:
       # formatting with line-breaks: https://community.plotly.com/t/dash-bootstrap-components-tooltip-multiple-lines/42285/2
       dbc.Tooltip(dcc.Markdown("= (\u0078 - \u03bc) / \u03C3\n\nMeasures how many standard-deviations the given value is afar from the population's mean."), target="z_score", style={"font-size": "16px"}), 
       ' of gene-expression by species & region']
-    self.credits ="by Christoph Hüsson"
+    self.credits ="by Christoph Hüsson & Jure Fabjan"
     self.description = [
       "All data obtained from Allen Brain Institute: Human microarray-data vs rodent in-situ hybridization. Note that 'mouse - sagittal' only provides data for left hemisphere. However, for some genes, coronal data is not available for mice.",
       html.Br(), 
@@ -73,6 +73,12 @@ class WebInterface:
         html.H1(self.header, className="pl-4 pt-2"),
         html.Span(self.credits, className="pl-4 text-muted", style={ 'position': 'absolute', 'top': '0.5rem', 'right': '0.5rem'}),
         html.P(self.description, className="pl-4"),
+        dbc.Row(dbc.InputGroup([
+          dbc.InputGroupAddon(
+            dbc.Button("Add gene", id="gene_input_button", n_clicks=0),
+            addon_type="prepend"),
+          dbc.Input(id="gene_input", placeholder="New gene", type="text")
+          ])),
         # TODO: explain z-score with a tooltip: https://dash-bootstrap-components.opensource.faculty.ai/docs/components/tooltip/ 
         dbc.Tabs([
           dbc.Tab(self.sideBySideView(VIEWS.allSpecies.name, [AGGREGATION_FUNCTIONS], [Constants.GENE_LIST]),  
@@ -84,6 +90,27 @@ class WebInterface:
           dbc.Tab(self.gridView(VIEWS.gridView.name, [SPECIES, Constants.GENE_LIST, STRUCTURE_LEVELS]), label="Data-grid")
         ]),
     ])
+
+    # Adding a single gene into the dropdown menus
+    @self.app.callback(
+    Output({'type': "gene", "input": True, "view": ALL}, "options"),
+    Output({'type': "gene", "input": True, "view": ALL, "side": ALL}, "options"),
+    Output({"type": "gene1", "input": True, "view": ALL, "side": ALL}, "options"),
+    Output({"type": "gene2", "input": True, "view": ALL, "side": ALL}, "options"),
+    Output("gene_input", "value"),
+    [Input("gene_input_button", "n_clicks")],
+    [State("gene_input", "value"),
+    State({'type': "gene", "input": True, "view": ALL}, "options"),
+    State({'type': "gene", "input": True, "view": ALL, "side": ALL}, "options"),
+    State({"type": "gene1", "input": True, "view": ALL, "side": ALL}, "options"),
+    State({"type": "gene2", "input": True, "view": ALL, "side": ALL}, "options"),])
+    def geneListUpdate(n_clicks, gene_name, list1, list2, list3, list4):
+      if n_clicks:
+        Constants.Genes.append(gene_name)
+        output_list = [{ "label": i, "value": i } for i in Constants.Genes]
+        return [output_list for _ in list1], [output_list for _ in list2], [output_list for _ in list3], [output_list for _ in list4], ""
+      else:
+        raise dash.exceptions.PreventUpdate
 
     @self.app.server.route('/shutdown', methods=['GET'])
     def shutdown():
